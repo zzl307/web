@@ -18,6 +18,9 @@
     <link href="{{ asset('css/base_info1.css') }}" rel="stylesheet">
     <link href="{{ asset('css/swiper.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/list.css') }}" rel="stylesheet">
+    <link href="{{ asset('weisucss/css/css.css') }}" rel="stylesheet">
+    <link href="{{ asset('weisucss/dh/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/css.css') }}" rel="stylesheet">
 	{{-- <script type="text/javascript" src="./static/js/yixingswt.js"></script> --}}
 	<script type="text/javascript">
 		try {
@@ -466,6 +469,9 @@
 	<script src="{{ asset('js/swiper.min.js') }}"></script>
 	<script src="{{ asset('js/jquery.SuperSlide.2.1.1.js') }}"></script>
 	<script src="{{ asset('js/common.js') }}"></script>
+	<script src="{{ asset('weisucss/js/menu.js') }}"></script>
+	<script src="{{ asset('weisucss/js/jquery-ui-1.8.18.custom.min.js') }}"></script>
+	<script src="{{ asset('weisucss/js/common.js') }}"></script>
 </body>
 
 </html>

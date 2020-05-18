@@ -16,5 +16,11 @@ class StaticPagesController extends Controller
     public function news()
     {
         return view('static_pages.news');
-    } 
+    }
+
+    // 详情
+    public function details()
+    {
+        return view('static_pages.details');
+    }
 }
