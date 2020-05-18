@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
-        <title>exands 审计数据平台 @yield('title')</title>
+        <title>anan 网站后台管理 @yield('title')</title>
         <link href="{{asset('bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css"/>
         <!--[if lt IE 9]>
             <link rel="stylesheet" type="text/css" href="{{asset('plugins/jquery-ui/jquery.ui.1.10.2.ie.css')}}"/>
@@ -46,7 +46,7 @@
                         </li>
                     </ul>
                     <a class="navbar-brand" href="{{ url('/home') }}">
-                        exands 审计数据平台
+                        anan 网站后台管理
                     </a>
                     <a href="#" class="toggle-sidebar bs-tooltip" data-placement="bottom" data-original-title="Toggle navigation">
                         <i class="icon-reorder">
