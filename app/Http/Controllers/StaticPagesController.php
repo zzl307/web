@@ -11,4 +11,10 @@ class StaticPagesController extends Controller
     {
         return view('static_pages/index');
     }
+
+    // 列表
+    public function news()
+    {
+        return view('static_pages.news');
+    } 
 }

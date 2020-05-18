@@ -12,4 +12,6 @@
 */
 
 // 首页
-Route::get('/', 'StaticPagesController@index');
+Route::get('/', 'StaticPagesController@index')->name('index');
+// 列表
+Route::get('news', 'StaticPagesController@news')->name('news');

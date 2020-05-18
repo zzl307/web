@@ -1,0 +1,828 @@
+@charset "utf-8";
+
+/* CSS Document */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {}
+
+a {
+    text-decoration: none;
+}
+
+ul,
+li {
+    list-style-type: none;
+}
+
+/*list*/
+#list_banner {
+    width: 100%;
+    height: 460px;
+    background: url(../images/banner.jpg) no-repeat center;
+}
+
+#list {
+    width: 1200px;
+    margin: 0 auto;
+    padding: 25px 0 0 0;
+    overflow: hidden;
+    background: #fff;
+}
+
+/*left*/
+.list_left {
+    width: 290px;
+    float: left;
+    overflow: hidden;
+    margin-bottom: 12px;
+    margin: 2px;
+}
+
+.list_left .list_tit {
+    width: 289px;
+    height: 149px;
+    background: #6a9bd3;
+    padding: 12px 0;
+    overflow: hidden;
+}
+
+.list_left .list_tit .bt {
+    margin-top: 45px;
+    font-size: 30px;
+    text-align: center;
+    color: #fff
+}
+
+.list_left .list_name {
+    width: 288px;
+    background: #fff;
+}
+
+.list_left .list_name li {
+    padding-left: 54px;
+    width: 288px;
+    line-height: 55px;
+    font-size: 16px;
+    border: 1px solid #D5D5D5;
+    background: #fff;
+}
+
+.list_left .list_name li a {
+    color: #999999;
+    font-weight: 600;
+}
+
+.list_left .list_name li a:hover {
+    color: #6a9bd3;
+}
+
+.list_left .list_name li em {
+    display: block;
+    float: right;
+    padding: 0 40px 0 0;
+    font-style: normal;
+    font-family: "Times New Roman";
+}
+
+.list_left .list_name li.thisclass {
+    background: #EFEFEF;
+}
+
+.list_left .list_contact {
+    width: 288px;
+    padding: 0 20px;
+    margin: 20px auto 12px auto;
+    border: 1px solid #D5D5D5;
+    background: #F6F6F6;
+    overflow: hidden;
+}
+
+.list_left .list_contact h3 {
+    color: #000;
+    font-size: 18px;
+    padding: 20px 0 15px 15px;
+    font-weight: normal;
+    border-bottom: 1px solid #E5E5E5;
+    height: 65px;
+    line-height: 30px;
+}
+
+.list_left .list_contact ul {
+    height: 90px;
+    border-bottom: 1px solid #e1e1e1;
+    overflow: hidden;
+}
+
+.list_left .list_contact ul li {
+    float: left;
+    display: inline;
+    width: 82px;
+    padding: 6px;
+    margin-top: 6px;
+    text-align: center;
+}
+
+.list_left .list_contact ul li a {
+    color: #000;
+    font-size: 14px;
+}
+
+.list_left .list_contact ul li a:hover {
+    color: #864076;
+}
+
+.list_left .list_contact ul li dd {
+    margin-top: 4px;
+}
+
+.list_left .list_contact .list_cont {
+    display: block;
+    margin: 20px auto;
+}
+
+.list_left #lf_add {
+    width: 288px;
+    border: 1px solid #D5D5D5;
+    background: #fff;
+    overflow: hidden;
+    margin-top: 15px;
+}
+
+.list_left #lf_add h2 {
+    color: #fff;
+    font-size: 18px;
+    padding: 10px 18px 10px 15px;
+    font-weight: normal;
+    background-color: #6a9bd3;
+}
+
+.list_left #lf_add p {
+    padding: 8px 0 8px 5px;
+    font-size: 16px;
+}
+
+/*right*/
+.list_right {
+    width: 880px;
+    margin-bottom: 12px;
+    float: right;
+    overflow: hidden;
+}
+
+.list_right h1 {
+    height: 110px;
+    line-height: 110px;
+    border-bottom: 1px solid #E8E8E8;
+    text-align: center;
+    font-size: 50px;
+    font-weight: normal;
+}
+
+.list_right h1 span {
+    display: block;
+    width: 300px;
+    margin: 0 auto;
+    border-bottom: 1px solid #A64D8F;
+}
+
+.list_step {
+    font-size: 33px;
+    text-align: center;
+    padding: 33px 0;
+    background: #EDEDED;
+    color: #727272;
+    font-family: "Times New Roman";
+    font-weight: bold;
+    overflow: hidden;
+}
+
+.list_step span {
+    font-size: 20px;
+    padding: 10px 0;
+    display: block;
+    font-family: "Times New Roman";
+    font-weight: normal;
+}
+
+.list_son {
+    width: 880px;
+    height: 150px;
+    background: #EDEDED;
+    overflow: hidden;
+}
+
+.list_son li {
+    float: left;
+    display: block;
+    width: 110px;
+    text-align: center;
+    cursor: pointer;
+    background: #FFFFff;
+    opacity: 0.7;
+    filter: alpha(opacity=70);
+}
+
+.menu0 li img {
+    width: 110px;
+    height: 150px;
+}
+
+.menu0 li.hover {
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+
+.list_select {
+    font-size: 30px;
+    text-align: center;
+    padding: 20px 0 0 0;
+    height: 120px;
+    color: #000;
+    font-family: "Times New Roman";
+    font-weight: bold;
+    overflow: hidden;
+}
+
+.list_select span {
+    font-size: 20px;
+    padding: 10px 0;
+    display: block;
+    font-family: "Times New Roman";
+    font-weight: normal;
+}
+
+#select0 ul {
+    display: none;
+    overflow: hidden;
+}
+
+#select0 ul.block {
+    display: block;
+}
+
+.list_scon li {
+    width: 280px;
+    height: 435px;
+    padding: 9px;
+    border: 1px solid #E1E1E1;
+    background: #fff;
+    float: left;
+    display: inline;
+    margin: 0 6.6px 12px 6.6px;
+}
+
+.list_scon .ls_con {
+    width: 260px;
+    height: 260px;
+    position: relative;
+    overflow: hidden;
+}
+
+.list_scon .ls_con img {
+    width: 260px;
+    height: 260px;
+}
+
+.list_scon .ls_hover {
+    width: 260px;
+    height: 260px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    overflow: visible;
+    transition: all 0.4s ease-in-out 0s;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.list_scon .ls_hover a.info {
+    background: url(../images/list/hover.png) no-repeat scroll center center transparent;
+    display: inline-block;
+    width: 260px;
+    height: 260px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out 0s;
+    position: relative;
+    top: 0;
+    left: 0px;
+}
+
+.list_scon .ls_con:hover .ls_hover {
+    opacity: 0.7;
+    filter: alpha(opacity=70);
+}
+
+.list_scon .ls_con:hover a.info {
+    opacity: 0.7;
+    filter: alpha(opacity=70);
+    transition-delay: 0.3s;
+}
+
+.list_scon h4 a {
+    text-align: left;
+    height: 40px;
+    line-height: 40px;
+    font-size: 19px;
+    color: #fff;
+    font-weight: normal
+}
+
+.list_scon .yongtu {
+    text-align: center;
+    border-bottom: 1px solid #D6D6D6;
+    padding: 5px 0 12px 0;
+    height: 50px;
+    overflow: hidden;
+    font-size: 14px;
+}
+
+.list_scon .dianzan .zxzj {
+    font-size: 15px;
+    padding: 10px;
+    margin-left: 22px;
+    border-radius: 7px
+}
+
+.list_scon .dianzan .lmxq {
+    font-size: 15px;
+    padding: 10px;
+    margin-left: 0px;
+    border-radius: 7px
+}
+
+.dianzan {
+    height: 20px;
+    margin-top: 26px;
+}
+
+.dianzan a {
+    color: #999999;
+    font-size: 16px;
+    line-height: 20px;
+    text-indent: 34px;
+    border: 1px solid #6a9bd3;
+    border-radius: 9px;
+    padding: 9px;
+}
+
+.dianzan a:hover {
+    background-position: 0 -24px;
+}
+
+.lson_banner {
+    width: 878px;
+    height: 250px;
+    border: 1px solid #E1E1E1;
+    margin-bottom: 18px;
+}
+
+.lscon_top {
+    width: 838px;
+    padding: 35px 20px;
+    border: 1px solid #E1E1E1;
+    margin-bottom: 18px;
+    overflow: hidden;
+    position: relative;
+}
+
+.lscon_top img {
+    width: 298px;
+    height: 278px;
+    float: left;
+}
+
+.lscon_tit {
+    width: 500px;
+    float: left;
+    margin-left: 10px;
+    display: inline;
+}
+
+.lscon_tit h2 {
+    font-size: 26px;
+    font-weight: normal;
+}
+
+.lscon_tit .yongtu {
+    max-height: 96px;
+    margin: 16px 0;
+    line-height: 32px;
+    font-size: 16px;
+    color: #222;
+    overflow: hidden;
+}
+
+.lscon_tit .dianzan {
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+
+.lscon_tit .miaoshu {
+    padding: 8px 0 0 0;
+    font-size: 14px;
+}
+
+.lscon_con {
+    background: #f0f0f0;
+    border: 1px solid #E1E1E1;
+    border-top: 6px solid #9C598C;
+    padding: 30px 40px;
+}
+
+.lscon_con h2 {
+    font-size: 32px;
+    font-weight: normal;
+    padding: 0 0 0 10px;
+    line-height: 50px;
+}
+
+.lscon_con h2 span {
+    font-family: "Times New Roman";
+    font-size: 50px;
+    display: block;
+}
+
+.lscon_con h3 {
+    color: #A487C9;
+    font-size: 22px;
+    font-weight: normal;
+    padding: 16px 0;
+}
+
+.content,
+.shixiang {
+    font-size: 16px;
+    line-height: 32px;
+}
+
+.lscon_con img {
+    max-width: 100%;
+}
+
+.youshi {
+    width: 818px;
+    overflow: hidden;
+    font-size: 16px;
+    line-height: 32px;
+    background: url(../images/list/ys_bg.jpg) no-repeat left top #8F58AD;
+    color: #fff;
+    padding: 112px 12px 12px 50px;
+}
+
+#lsarc {
+    width: 108px;
+    height: 29px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: url(../images/list/lsarc1.jpg) no-repeat center;
+}
+
+#list_arc {
+    display: none;
+    border: 1px solid #E1E1E1;
+    padding: 20px;
+}
+
+#list_arc #lsarcon li {
+    overflow: hidden;
+    border-bottom: 1px dotted #c8c8c8;
+    padding: 21px 0 20px 0;
+    display: inline-block;
+}
+
+#list_arc #lsarcon li.tdbg {
+    background: #F6F6F6;
+}
+
+#list_arc #lsarcon li div {
+    float: left;
+    display: inline;
+}
+
+#list_arc #lsarcon img {
+    width: 161px;
+    height: 100px;
+}
+
+#list_arc #lsarcon .tdimg {
+    width: 161px;
+    height: 100px;
+    overflow: hidden;
+    margin-right: 21px;
+}
+
+#list_arc #lsarcon .tdcon {
+    width: 647px;
+    height: 100px;
+    overflow: hidden;
+}
+
+#list_arc #lsarcon .tdcon h3 {
+    height: 40px;
+    line-height: 40px;
+    font-weight: normal;
+}
+
+#list_arc #lsarcon .tdcon h3 a {
+    font-size: 16px;
+    color: #222;
+}
+
+#list_arc #lsarcon .tdcon p {
+    height: 60px;
+    overflow: hidden;
+    font-size: 13px;
+    color: #888;
+    line-height: 24px;
+}
+
+#list_arc #lsarcon .tdcon p a {
+    color: #888;
+}
+
+#list_arc #lsarcon .tdcon a:hover {
+    color: #561a40;
+}
+
+#page span {
+    font-size: 12px;
+    font-weight: bold;
+    color: #666;
+    display: inline-block;
+    width: 52px;
+    height: 42px;
+    line-height: 42px;
+    text-align: center;
+    margin: 0 5px;
+}
+
+#page a {
+    display: inline-block;
+    width: 52px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border: 1px solid #CCCCCC;
+    color: #8698b6;
+    font-weight: bold;
+    margin: 5px;
+}
+
+#page a:hover {
+    color: #fff;
+    background: #622753;
+    border: 1px solid #622753;
+}
+
+#page span.now,
+#page span.total {
+    width: 120px;
+}
+
+.pagelist {
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.pagelist div {
+    float: left;
+    font-size: 12px;
+    font-weight: bold;
+    color: #666;
+    display: inline-block;
+    height: 42px;
+    line-height: 42px;
+    text-align: center;
+    margin: 0 5px;
+}
+
+.pagelist p {
+    font-size: 12px;
+    font-weight: bold;
+    color: #666;
+    display: inline-block;
+    width: 52px;
+    height: 42px;
+    line-height: 42px;
+    text-align: center;
+    margin: 0 5px;
+}
+
+/*.pagelist a,.pagelist div select{ display:inline-block; width:52px; height:30px; line-height:30px; text-align:center; border:1px solid #CCCCCC; color:#8698b6; font-weight:bold; margin:5px;}*/
+.pagelist a:hover {
+    color: #fff;
+    background: #622753;
+    border: 1px solid #622753;
+}
+
+.pagelist p.now,
+.pagelist p.total {
+    width: 120px;
+}
+
+/*zt*/
+.ztc {
+    background: #f3f3f3;
+    padding: 21px 0;
+}
+
+#Special {
+    width: 1190px;
+    background: #fff;
+    margin: 0 auto;
+    padding: 21px 0 0 0;
+}
+
+.content {
+    margin: 0 auto;
+}
+
+.recommend {
+    width: 1110px;
+    height: 200px;
+    padding-top: 30px;
+    margin-bottom: 47px;
+}
+
+.recommend dl {
+    height: 192px;
+}
+
+.recommend dt {
+    font-size: 28px;
+    border-bottom: 1px solid #e8e5e8;
+    margin-bottom: 17px;
+}
+
+.recommend dt p {
+    border-bottom: 1px solid #7d2b86;
+    width: 112px;
+    padding-bottom: 12px;
+}
+
+.recommend dd {
+    width: 272px;
+    height: 142px;
+    float: left;
+    margin-left: 7px;
+    display: inline;
+}
+
+.recommend .dd0 {
+    margin-left: 0px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 20px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 25px;
+    margin-top: 60px;
+    font-weight: normal
+}
+
+h4 {
+    text-align: center;
+    background-color: #6a9bd3;
+}
+
+.tab {
+    width: 1110px;
+    overflow: hidden;
+    margin: 0px auto;
+    border: none;
+    padding-bottom: 30px;
+}
+
+.tab ul.tit {
+    border-bottom: 1px solid #cacaca;
+    float: left;
+    width: 100%;
+    height: 50px;
+    overflow: hidden;
+}
+
+.tab ul.tit li.maltin {
+    margin-left: 0;
+}
+
+.tab ul.tit li {
+    width: 100px;
+    height: 42px;
+    line-height: 42px;
+    border-right: 1px solid #cacaca;
+    float: left;
+    color: #333;
+    font-weight: 100;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+    background: #ececec;
+    border: dashed #c0c0c0 1px;
+    margin-left: 12px;
+    margin-top: 7px;
+    border-bottom: none;
+}
+
+.tab ul.tit li.hover {
+    background: #7d2b86;
+    color: #fff;
+    border: none;
+    height: 42px;
+    margin-top: 8px;
+}
+
+.tab ul.box {
+    float: left;
+    width: 1110px;
+}
+
+.tab ul.box li {
+    width: 100%;
+    display: none;
+    text-align: center;
+}
+
+.special_con {
+    overflow: hidden;
+    position: relative;
+    height: 480px;
+}
+
+.special_c {
+    position: absolute;
+}
+
+.special_con dl {
+    background: #e8e5e8;
+    width: 356px;
+    height: 220px;
+    float: left;
+    margin: 20px 21px 0 0;
+    display: inline;
+    overflow: hidden;
+}
+
+.special_con dl.margin {
+    margin-right: 0px;
+}
+
+.special_con dt {
+    margin-top: 10px;
+}
+
+.special_con dd p {
+    width: 220px;
+    height: 28px;
+    float: left;
+    text-align: left;
+    margin-left: 12px;
+    display: inline;
+    font-size: 16px;
+}
+
+.special_con dd a {
+    float: right;
+    margin-right: 12px;
+    background: #7d2b86;
+    color: #fff;
+    width: 112px;
+    height: 28px;
+    line-height: 28px;
+    display: block;
+}
+
+.special_con a:hover {
+    background: #e9a920;
+    color: #000;
+}
+
+.pagelist {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.tab ul.box li .pagelist li {
+    display: inline;
+    margin: 0 3px;
+    padding: 3px 8px;
+    background: #cacaca;
+    color: #000;
+    cursor: pointer;
+}
+
+.tab ul.box li .pagelist li a {
+    color: #000;
+}
+
+.tab ul.box li .pagelist li.thisclass {
+    background: #555;
+    color: #fff;
+}
