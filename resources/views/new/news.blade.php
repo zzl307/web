@@ -154,12 +154,12 @@
 										<a href="javascript:;" onclick="showNewsDetail('{{ $vo['id'] }}')" class="btn btn-xs bs-tooltip" title="详情" id="news_id_{{ $vo['id'] }}">
 											<i class="icon-eye-open"></i>
 										</a>
-										<a href="" class="btn btn-xs bs-tooltip" title="删除" onclick="if(confirm('确定删除?') == false) return false;">
-											<i class="icon-trash">
-											</i>
-										</a>
 										<a href="" class="btn btn-xs bs-tooltip" title="修改">
 											<i class="icon-edit">
+											</i>
+										</a>
+										<a href="javascript:;" onclick="deleteNews('{{ $vo['id'] }}')" class="btn btn-xs bs-tooltip" title="删除">
+											<i class="icon-trash">
 											</i>
 										</a>
 									</td>
@@ -296,7 +296,7 @@
 					</h4>
 				</div>
 				<div class="modal-body">
-					<div class="dataTables_info" id="news">
+					<div class="col-md-12" id="news">
 
 					</div>
 					<div class="modal-footer table-bordered">
@@ -328,199 +328,20 @@
 				if (data) {	
 					$('#news').html(data.description);
 					$('#showNewsDetail').modal();
-					// $('#advancedFindModal').on('hidden.bs.modal', function () {
-					// 	$('#site_id_'+site_id).css('color', '#908f90');
-					// });
 				}
 			});
 		}
 
-		function syncSiteInfo(){
-			var site_id = $('#showSiteDetailModal_site_id').html();
-			$.getJSON('{{ url('site/syncSiteInfo') }}', {site_id: site_id}, function(data){
-				showSiteDetailModal(data);
-			});
-		}
-
-		// $('#showSiteDetailModal_site_name').dblclick(function()
-		// {	
-		// 	var val = $('#showSiteDetailModal_site_name').html();
-		// 	var site_name = 'site_name';
-		// 	var site_id = $('#showSiteDetailModal_site_id').html();
-		// 	$('#showSiteDetailModal_site_name').html("<input type='text' id='"+site_name+"' name='"+site_name+"' value='"+val+"' class='form-control'>");
-		// 	$('#site_name').focus()
-		// 	$('#site_name').blur(function() {
-		// 		var siteName = $(this).val();
-		// 		if (siteName == '') {
-		// 			$('#dbName').remove();
-		// 			$(this).val('没有数据');
-		// 		}else {
-		// 			$('#dbName').remove();
-		// 			$.post('{{ url('site/getSiteNameInfo') }}', {_token: '{{ csrf_token() }}', site_name: siteName, site_id: site_id}, function (data) {
-		// 				$('#showSiteDetailModal_site_name').html(data);
-		// 			});
-		// 		}
-		// 	});
-		// });
-
-		$('#closeButton').click(function() {
-			var site_device = $('#showSiteDetailModal_devices').html();
-			var site_aplist = $('#showSiteDetailModal_aplist').html();
-			if(site_device == '' && site_aplist == ''){
-				history.go(0);
-			}
-		});
-
-		function deleteSiteDevice(site_id, device_id)
-		{
-			$.getJSON('{{ url('site/deleteSiteDevice') }}', {site_id: site_id, device_id: device_id}, function(data)
-			{
-				if (data)
-				{	
-					showSiteDetailModal(data);
-					$('#showSiteDetailModal_modified').val('1');
-				}
-			});
-		}
-
-		$('#showSiteDetailModal').on('hidden.bs.modal', function () {
-			var modified = $('#showSiteDetailModal_modified').val();
-			if (modified != 0)
-				history.go(0);
-		});
-
-		function changeSiteAuthType()
-		{
-			var site_id = $('#showSiteDetailModal_site_id').html();
-			var auth_type = $('input[name=showSiteDetailModal_auth_type]:checked').val();
-
-			$.getJSON('{{ url('site/setSiteAuthType') }}', {site_id: site_id, auth_type: auth_type}, function(data)
-			{
-				if (data)
-				{	
-					showSiteDetailModal(data);
-					$('#showSiteDetailModal_modified').val('1');
-				}
-			});
-		}
-
-		function changeSiteLoginFlags()
-		{
-			var site_id = $('#showSiteDetailModal_site_id').html();
-			var login_udp_flag = 0;
-			var login_radius_flag = 0;
-
-			if ($('#showSiteDetailModal_login_udp_flag').is(":checked"))
-				login_udp_flag = 1;
-			if ($('#showSiteDetailModal_login_radius_flag').is(":checked"))
-				login_radius_flag = 1;
-
-			$.getJSON('{{ url('site/setSiteFlags') }}', {site_id: site_id, login_udp_flag: login_udp_flag, login_radius_flag: login_radius_flag}, function(data)
-			{
-				if (data)
-				{	
-					showSiteDetailModal(data);
-					$('#showSiteDetailModal_modified').val('1');
-				}
-			});
-		}
-
-		function showDeviceConfig(device_id)
-		{
-			$.getJSON('{{ url('site/getDeviceConfig') }}', {device_id: device_id}, function(data){
-				alert(data);
-			})
-		}
-
-		function onSiteSelectionChange()
-		{
-			var a = $("input[name='site_id']:checked");  
-			var b = '认证';
-			var c = '实名获取';
-			var d = '场所号';
-
-			if (a.length > 0)
-			{
-				b += '<span style="float: right;"><a href="javascript:;" onclick="showChangeSitesAuthTypeModal()"><i class="icon-edit"></i></a></span>';
-				c += '<span style="float: right;"><a href="javascript:;" onclick="showChangeSitesLoginFlagsModal()"><i class="icon-edit"></i></a></span>';
-				d += '<span style="float: right;"><a href="javascript:;" onclick="deleteSites()"><i class="icon-trash"></i></a></span>';
-			}
-
-			$('#th_auth_type').html(b);
-			$('#th_login_flags').html(c);
-			$('#td_delete_sites').html(d);
-		}
-
-		function showChangeSitesAuthTypeModal()
-		{
-			$('input[name=changeSitesAuthTypeModal_auth_type]').prop('checked', false);
-			$('#changeSitesAuthTypeModal').modal();
-		}
-
-		function changeSitesAuthType()
-		{
-			var a = $("input[name='site_id']:checked");
-			var v = $('input[name=changeSitesAuthTypeModal_auth_type]:checked').val();
-
-			var site_id='';
-			for (i=0;i<a.length;i++)
-			{
-				if (site_id != '')
-					site_id += ',';
-				site_id+=a[i].value;
-			}
-
-			$.getJSON('{{ url('site/setSiteAuthType') }}', {site_id: site_id, auth_type: v}, function(data){ history.go(0); });
-		}
-
-		function showChangeSitesLoginFlagsModal()
-		{
-			$('#changeSitesLoginFlagsModal_login_udp_flag').prop('checked', false);
-			$('#changeSitesLoginFlagsModal_login_radius_flag').prop('checked', false);
-			$('#changeSitesLoginFlagsModal').modal();
-		}
-
-		function changeSitesLoginFlags()
-		{
-			var a = $("input[name='site_id']:checked");
-			var site_id='';
-			for (i=0;i<a.length;i++)
-			{
-				if (site_id != '')
-					site_id += ',';
-				site_id+=a[i].value;
-			}
-
-			var login_udp_flag = 0;
-			var login_radius_flag = 0;
-
-			if ($('#changeSitesLoginFlagsModal_login_udp_flag').is(":checked"))
-				login_udp_flag = 1;
-			if ($('#changeSitesLoginFlagsModal_login_radius_flag').is(":checked"))
-				login_radius_flag = 1;
-
-			$.getJSON(
-				'{{ url('site/setSiteFlags') }}', {site_id: site_id, login_udp_flag: login_udp_flag, login_radius_flag: login_radius_flag}, function(data){
-				history.go(0);
-			});
-		}
-
-		function deleteSites(){
-			var a = $("input[name='site_id']:checked");  
-			var sites = "";
-
-			for (var i=0; i<a.length;i++)
-			{
-				if (sites != "")
-					sites += ",";
-				sites += a[i].value;  
-			}
-			if (confirm('确定删除选择的场所?') == false)
+		function deleteNews(id){
+			if (confirm('确定删除选择的场所?') == false) {
 				return false;
+			}
 
-			$.getJSON('{{ url('site/deleteSites') }}', {sites: sites}, function(data){
-				alert('场所'+sites+'删除成功');
-				location.reload();
+			$.getJSON('{{ url('news/deleteNews') }}', {id: id}, function(data){
+				if (data == 1) {
+					alert('删除成功');
+					location.reload();
+				}
 			});
 		}
 	</script>

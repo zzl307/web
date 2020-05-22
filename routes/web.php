@@ -31,6 +31,7 @@ Route::group(['prefix' => 'news'], function () {
 		Route::any('/category', 'NewController@category')->name('news.category');
 		Route::any('/category_store', 'NewController@categoryStore')->name('news.categoryStore');
 		Route::any('getNewsInfo', 'NewController@getNewsInfo');
+		Route::any('deleteNews', 'NewController@deleteNews');
 		// Route::any('export', 'SiteController@export');
 		// // API
 		// Route::any('getSiteInfo', 'SiteController@getSiteInfo');

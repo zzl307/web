@@ -92,4 +92,15 @@ class NewController extends Controller
 
 		return json_encode($new);
 	}
+
+	// 新闻删除
+	public function deleteNews()
+	{
+		$id = request()->input('id');
+		$new = News::find($id);
+
+		if($new->delete()) {
+			return 1;
+		};
+	}
 }
