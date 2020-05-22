@@ -20,7 +20,7 @@
 @stop
 
 @section('menu')
-	新闻管理
+	新闻分类
 @stop
 
 @section('content')
@@ -35,7 +35,7 @@
 					<h4>
 						<i class="icon-reorder">
 						</i>
-						新闻列表
+						新闻分类
 					</h4>
 					<div class="toolbar no-padding">
 						<div class="btn-group">
@@ -48,7 +48,7 @@
 								<span class="btn btn-xs btn-info" style="border-left: 0px;">
 									<i class="icon-edit">
 									</i>
-									发布新闻
+									新建分类
 								</span>
 							</a>
 						</div>
@@ -59,24 +59,9 @@
 					<form class="form-horizontal" action="{{ url('site/index') }}" method="get">
 						<input type="hidden" name="area" value="">
 						<div class="form-group" style="margin-top: 15px;">
-	   						<div class="col-md-4">
-								<input class="form-control" name="key" value="" type="text" placeholder="新闻名称 新闻关键词">
+	   						<div class="col-md-2">
+								<input class="form-control" name="key" value="" type="text" placeholder="分类名称">
 							</div>
-							<div class="col-md-2" style="margin-left: -15px;">
-								<select class="select2-select-00 col-md-12 full-width-fix" name="type">
-									<option value="0" selected>全部</option>
-									<option value="1" >吸脂</option>
-								</select>
-							</div>
-							{{-- <div class="col-md-1" style="margin-left: -15px;">
-								<select class="select2-select-00 col-md-12 full-width-fix" name="list">
-									<option value="0">分页显示</option>
-									<option value="15" {{ isset($data) && $data['list'] == 15 ? 'selected' : '' }}>15</option>
-									<option value="25" {{ isset($data) && $data['list'] == 25 ? 'selected' : '' }}>25</option>
-									<option value="50" {{ isset($data) && $data['list'] == 50 ? 'selected' : '' }}>50</option>
-									<option value="100" {{ isset($data) && $data['list'] == 100 ? 'selected' : '' }}>100</option>
-								</select>
-							</div> --}}
 							<button class="btn btn-sm btn-info" style="padding: 5px 16px;">搜索</button>
 						</div>
 					</form>
@@ -92,31 +77,25 @@
                                     </th>
                                 @endcan
                                 <th id="td_delete_sites">
-                                    新闻ID
+                                    分类ID
                                 </th>
                                 <th class="col-md-2">
-                                    新闻名称
+                                    分类名称
                                 </th>
                                 <th id="th_auth_type" class="col-md-2">
-                                    关键词
-                                </th>
-                                <th class="col-md-2">
-                                    描述
-                                </th>
-                                <th>
                                     所属分类
-                                </th>
-                                <th>
+								</th>
+								<th>
                                     发布状态
                                 </th>
                                 <th>
-                                    浏览次数
+                                    分类新闻数
 								</th>
                                 <th>
-                                    发布时间
-								</th>
-								<th>
                                     更新时间
+                                </th>
+                                <th>
+                                    发布时间
                                 </th>
 								<th>
 									
@@ -124,23 +103,17 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($data as $vo)
+                            @foreach($paginator as $vo)
                                 <tr>
                                     <td>
                                         {{ $vo['id'] }}
                                     </td>
                                     <td>
-                                        {{ $vo['title'] }}
-                                    </td>
-                                    <td>
-										{{ $vo['keyword'] }}
-                                    </td>
-                                    <td>
-                                        {{ $vo['description'] }}
+                                        {{ $vo['name'] }}
                                     </td>
                                     <td>
                                         <span class="label label-danger">
-											{{ $vo['cid'] }}
+											{{ $vo['cid_name'] }}
 										</span>
                                     </td>
                                     <td>
@@ -156,15 +129,15 @@
                                         {{ $vo['updated_at'] }}
 									</td>
 									<td>
-										<a href="" class="btn btn-xs bs-tooltip" title="详情"><i class="icon-eye-open"></i></a>
+										{{-- <a href="" class="btn btn-xs bs-tooltip" title="详情"><i class="icon-eye-open"></i></a> --}}
+										<a href="" class="btn btn-xs bs-tooltip" title="修改">
+											<i class="icon-edit">
+											</i>
+										</a>
 										<a href="" class="btn btn-xs bs-tooltip" title="删除" onclick="if(confirm('确定删除?') == false) return false;">
 											<i class="icon-trash">
 											</i>
 										</a>
-										<a href="" class="btn btn-xs bs-tooltip" title="修改">
-											<i class="icon-edit">
-											</i>
-									</a>
 									</td>
                                 </tr>
                             @endforeach
@@ -174,14 +147,14 @@
                 <div class="dataTables_footer clearfix" style="padding: 12px 0;border-top: 1px solid #ddd;">
                     <div class="col-md-6">
                         <div class="dataTables_info">
-                            <strong>总计：</strong>
+                            <strong>总计： {{ $total }}</strong>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="dataTables_paginate paging_bootstrap">
-                            {{-- @if(isset($paginator))
-                                {{ $paginator->links() }}
-                            @endif --}}
+                            @if(isset($paginator))
+                                {{ $paginator->render() }}
+							@endif
                         </div>
                     </div>
                 </div>
@@ -197,11 +170,11 @@
 						&times;
 					</button>
 					<h4 class="modal-title">
-						发布新闻
+						新建分类
 					</h4>
 				</div>
 				<div class="modal-body">
-					<form class="form-horizontal row-border" action="{{ route('news.store') }}" method="post">
+					<form class="form-horizontal row-border" action="{{ route('news.categoryStore') }}" method="post">
 
 						{{ csrf_field() }}
 
@@ -210,59 +183,25 @@
 							<tbody>
 								<tr>
 									<td>
-										新闻标题
+										分类名称
 									</td>
 									<td>
 										<div class="col-md-6">
-											<input class="form-control" name="title" value="" type="text" placeholder="新闻标题" required>
+											<input class="form-control" name="name" value="" type="text" placeholder="分类名称" required>
 										</div>
 									</td>
 								</tr>
 								<tr>
 									<td>
-										新闻关键词
+										所属分类
 									</td>
 									<td>
 										<div class="col-md-6">
-											<input class="form-control" name="keyword" value="" type="text" placeholder="已逗号隔开" required>
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										新闻分类
-									</td>
-									<td>
-										<div class="col-md-6">
-											<select class="select2-select-00 col-md-12 full-width-fix" name="type" required>
-												<option value="0" selected>全部</option>
-												<option value="1">在线场所</option>
-											</select>
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										新闻详情
-									</td>
-									<td>
-										<div class="col-md-12">
-											<textarea rows="15" cols="5" name="description" class="form-control" placeholder="新闻详情" required>{{ isset($data['description']) ? $data['description'] : '' }}</textarea>
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										分页显示
-									</td>
-									<td>
-										<div class="col-md-6">
-											<select class="select2-select-00 col-md-12 full-width-fix" name="list">
-												<option value="0">分页显示</option>
-												{{-- <option value="15" {{ isset($data) && $data['list'] == 15 ? 'selected' : '' }}>15</option>
-												<option value="25" {{ isset($data) && $data['list'] == 25 ? 'selected' : '' }}>25</option>
-												<option value="50" {{ isset($data) && $data['list'] == 50 ? 'selected' : '' }}>50</option>
-												<option value="100" {{ isset($data) && $data['list'] == 100 ? 'selected' : '' }}>100</option> --}}
+											<select class="select2-select-00 col-md-12 full-width-fix" name="cid" required>
+												<option value="1" selected>一级分类</option>
+												@foreach ($data as $vo)
+													<option value="{{ $vo['cid'] }}" {{ isset($vo) && $vo['cid'] == 1 ? 'selected' : '' }}>{{ $vo['name'] }}</option>
+												@endforeach
 											</select>
 										</div>
 									</td>

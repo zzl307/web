@@ -4,9 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class New extends Model
+class News extends Model
 {
-    public $timestamps = false;
+    protected $table = 'news';
+    
+    // public $timestamps = false;
 
     protected $fillable = [
         'title', 'keyword', 'description',

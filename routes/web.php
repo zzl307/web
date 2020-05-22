@@ -27,6 +27,9 @@ Route::get('/home', function () {
 Route::group(['prefix' => 'news'], function () {
 	// Route::group(['middleware' => 'can:site_overview'], function () {
 		Route::any('index', 'NewController@home');
+		Route::any('/store', 'NewController@store')->name('news.store');
+		Route::any('/category', 'NewController@category')->name('news.category');
+		Route::any('/category_store', 'NewController@categoryStore')->name('news.categoryStore');
 		// Route::any('export', 'SiteController@export');
 		// // API
 		// Route::any('getSiteInfo', 'SiteController@getSiteInfo');
@@ -54,3 +57,4 @@ Route::group(['prefix' => 'news'], function () {
 		// Route::any('siteLogs', 'SiteController@siteLogs');
 	// });
 });
+    

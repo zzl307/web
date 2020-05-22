@@ -29,11 +29,18 @@
 			新闻管理
 		</a>
 		<ul class="sub-menu">
-			<li class="@if(Request::segment(1) == 'site' && Request::segment(2) == 'index') current @endif">
-				<a href="{{ url('site/index') }}">
-					<i class="icon-dashboard">
+			<li class="{{Request::segment(2) == 'index' ? 'current' : ''}}">
+				<a href="{{ url('news/index') }}">
+					<i class="icon-caret-right">
 					</i>
 					新闻列表
+				</a>
+			</li>
+			<li class="{{Request::segment(2) == 'category' ? 'current' : ''}}">
+				<a href="{{ url('news/category') }}">
+					<i class="icon-caret-right">
+					</i>
+					新闻分类
 				</a>
 			</li>
 		</ul>
