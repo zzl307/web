@@ -2,6 +2,7 @@
 
 @section('style')
 	<link href="{{ asset('static/css/city-picker.css') }}" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/simditor.css') }}">
 	<style>
 		.widget-content.no-padding .dataTables_header{
 			border-top: 1px solid #ddd;
@@ -100,9 +101,6 @@
                                 <th id="th_auth_type" class="col-md-2">
                                     关键词
                                 </th>
-                                <th class="col-md-2">
-                                    描述
-                                </th>
                                 <th>
                                     所属分类
                                 </th>
@@ -122,7 +120,7 @@
 									
 								</th>
                             </tr>
-                        </thead>
+                        </thead>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
                         <tbody>
                             @foreach($data as $vo)
                                 <tr>
@@ -136,11 +134,8 @@
 										{{ $vo['keyword'] }}
                                     </td>
                                     <td>
-                                        {{ $vo['description'] }}
-                                    </td>
-                                    <td>
                                         <span class="label label-danger">
-											{{ $vo['cid'] }}
+											{{ $vo['type_name'] }}
 										</span>
                                     </td>
                                     <td>
@@ -156,7 +151,9 @@
                                         {{ $vo['updated_at'] }}
 									</td>
 									<td>
-										<a href="" class="btn btn-xs bs-tooltip" title="详情"><i class="icon-eye-open"></i></a>
+										<a href="javascript:;" onclick="showNewsDetail('{{ $vo['id'] }}')" class="btn btn-xs bs-tooltip" title="详情" id="news_id_{{ $vo['id'] }}">
+											<i class="icon-eye-open"></i>
+										</a>
 										<a href="" class="btn btn-xs bs-tooltip" title="删除" onclick="if(confirm('确定删除?') == false) return false;">
 											<i class="icon-trash">
 											</i>
@@ -164,7 +161,7 @@
 										<a href="" class="btn btn-xs bs-tooltip" title="修改">
 											<i class="icon-edit">
 											</i>
-									</a>
+										</a>
 									</td>
                                 </tr>
                             @endforeach
@@ -189,8 +186,9 @@
 		</div>
 	</div>
 
+	{{-- 发布新闻 --}}
 	<div class="modal fade" id="advancedSearchModal">
-		<div class="modal-dialog" style="width: 1200px;">
+		<div class="modal-dialog" style="width: 1500px;">
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
@@ -234,9 +232,11 @@
 									</td>
 									<td>
 										<div class="col-md-6">
-											<select class="select2-select-00 col-md-12 full-width-fix" name="type" required>
+											<select class="select2-select-00 col-md-12 full-width-fix" name="cid" required>
 												<option value="0" selected>全部</option>
-												<option value="1">在线场所</option>
+												@foreach ($type as $vo)
+													<option value="{{ $vo['id'] }}">{{ $vo['name'] }}</option>
+												@endforeach
 											</select>
 										</div>
 									</td>
@@ -247,7 +247,7 @@
 									</td>
 									<td>
 										<div class="col-md-12">
-											<textarea rows="15" cols="5" name="description" class="form-control" placeholder="新闻详情" required>{{ isset($data['description']) ? $data['description'] : '' }}</textarea>
+											<textarea rows="15" cols="5" id="editor" name="description" class="form-control" placeholder="新闻详情" required>{{ isset($data['description']) ? $data['description'] : '' }}</textarea>
 										</div>
 									</td>
 								</tr>
@@ -282,341 +282,55 @@
 			</div>
 		</div>
 	</div>
+
+	{{-- 详情 --}}
+	<div class="modal fade" id="showNewsDetail">
+		<div class="modal-dialog" style="width: 1500px;">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						&times;
+					</button>
+					<h4 class="modal-title">
+						新闻详情
+					</h4>
+				</div>
+				<div class="modal-body">
+					<div class="dataTables_info" id="news">
+
+					</div>
+					<div class="modal-footer table-bordered">
+						<button type="button" class="btn btn-default" data-dismiss="modal">
+							返回
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 @stop
 
 @section('javascript')
-	<script src="{{ asset('static/js/city-picker.data.js') }}"></script>
-	<script src="{{ asset('static/js/city-picker.js') }}"></script>
-	<script src="{{ asset('static/js/main.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('js/module.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('js/hotkeys.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('js/uploader.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('js/simditor.js') }}"></script>
 	<script type="text/javascript">
-		function showSiteDetailModal(data)
+		$(document).ready(function() {
+			var editor = new Simditor({
+				textarea: $('#editor'),
+			});
+		});
+
+		function showNewsDetail(news_id)
 		{
-			var rows = "";
-			var html = "";
-
-			if(data.sync_time == '0000-00-00 00:00:00'){
-				$('#showSiteDetailModal_timestamp').html('null');
-			}else{
-				$('#showSiteDetailModal_timestamp').html(data.sync_time);
-			}
-		    if(data.sync_status == 1){
-		    	$('#showSiteDetailModal_sync_status').html('<span class="label label-success">更新成功</span>');
-		    }else if(data.sync_status == 0){
-		    	$('#showSiteDetailModal_sync_status').html('<span class="label label-warning">没有数据</span>');
-		    }else{
-		    	$('#showSiteDetailModal_sync_status').html('<span class="label label-danger">更新失败</span>');
-		    }
-
-			$('#showSiteDetailModal_site_id').html(data.site_id);
-			$('#showSiteDetailModal_site_name').html(data.site_name);
-			$('#showSiteDetailModal_site_area').html(data.site_area);
-
-			if (data.auth_type == 1)
-				$('#showSiteDetailModal_auth_type_1').prop('checked', true);
-			else if (data.auth_type == 2)
-				$('#showSiteDetailModal_auth_type_2').prop('checked', true);
-			else if (data.auth_type == 3)
-				$('#showSiteDetailModal_auth_type_3').prop('checked', true);
-			else
-				$('#showSiteDetailModal_auth_type_0').prop('checked', true);
-
-			$("input[name='showSiteDetailModal_auth_type']").prop('disabled', true);
-			@can('site_manage')
-				$("input[name='showSiteDetailModal_auth_type']").prop('disabled', false);
-			@endcan
-
-			$('#showSiteDetailModal_ip_address').html(data.ip_address);
-			$('#showSiteDetailModal_online_users').html(data.online_users);
-			$('#showSiteDetailModal_update_time').html(datetime(data.update_time));
-			$('#showSiteDetailModal_gateway_mac').html(data.gateway_mac);
-			if (data.update_time + 600 > data.timestamp)
-				$('#showSiteDetailModal_update_time').append("&nbsp;<span class='label label-success'>在线</span>");
-			else
-				$('#showSiteDetailModal_update_time').append("&nbsp;<span class='label label-danger'>离线</span>");
-
-			$('#showSiteDetailModal_login_query_rcvd').html(data.stats.login_query_rcvd);
-			$('#showSiteDetailModal_login_query_failed').html(data.stats.login_query_failed);
-			$('#showSiteDetailModal_login_udp_rcvd').html(data.stats.login_udp_rcvd);
-			$('#showSiteDetailModal_login_portal_rcvd').html(data.stats.login_portal_rcvd);
-			$('#showSiteDetailModal_login_radius_auth_rcvd').html(data.stats.login_radius_auth_rcvd);
-			$('#showSiteDetailModal_login_radius_acct_rcvd').html(data.stats.login_radius_acct_rcvd);
-			$('#showSiteDetailModal_login_vendor_rcvd').html(data.stats.login_vendor_rcvd);
-			$('#showSiteDetailModal_login_center_rcvd').html(data.stats.login_center_rcvd);
-			$('#showSiteDetailModal_login_center_failed').html(data.stats.login_center_failed);
-			$('#showSiteDetailModal_login_cached_rcvd').html(data.stats.login_cached_rcvd);
-
-			$('#showSiteDetailModal_login_udp_flag').prop('checked', false);
-			if (data.login_udp_flag > 0)
-				$('#showSiteDetailModal_login_udp_flag').prop('checked', true);
-
-			$('#showSiteDetailModal_login_radius_flag').prop('checked', false);
-			if (data.login_radius_flag > 0)
-				$('#showSiteDetailModal_login_radius_flag').prop('checked', true);
-
-			$('#showSiteDetailModal_login_udp_flag').prop('disabled', true);
-			$('#showSiteDetailModal_login_radius_flag').prop('disabled', true);
-			@can('site_manage')
-				$('#showSiteDetailModal_login_udp_flag').prop('disabled', false);
-				$('#showSiteDetailModal_login_radius_flag').prop('disabled', false);
-			@endcan
-
-			rows = "";
-			html = "";
-			for (var i=0; i<data.devices.length; i++)
-			{
-				if (data.devices[i].devtype == 'secdev')
-				{
-					rows += "<tr>";
-					rows += "<td>";
-					rows += "<a href='javascript:;' style='color: #555;' onclick=\"showDeviceConfig('" + data.devices[i].device_id + "')\">" + data.devices[i].device_id + "</a>";
-					rows += "</td>";
-					rows += "<td>" + data.devices[i].version + "</td>";
-					rows += "<td>" + data.devices[i].vendor + "</td>";
-					rows += "<td>" + data.devices[i].modal + "</td>";
-					rows += "<td>" + datetime(data.devices[i].update_time) + "</td>";
-					rows += "<td>";
-					if (data.devices[i].registered == 1)
-					{
-						rows += "<span style='float: right;'><i class='icon-star'></i></span>";
-					}
-					else
-					{
-						@can('site_manage')
-							rows += "<span style='float: right;'><a href='javascript:;' onclick=\"deleteSiteDevice('"+data.site_id+"', '"+data.devices[i].device_id+"')\"><i class='icon-trash'></span>";
-						@endcan
-					}
-					rows += "</td>";
-					rows += "</tr>";
-				}
-			}
-			if (rows != "")
-			{
-				html += "<table class='table table-highlight-head'>";
-				html += "<thead>";
-				html += "<tr>";
-				html += "<th class='col-md-2'>设备号</th>";
-				html += "<th class='col-md-2'>版本</th>";
-				html += "<th class='col-md-2'>设备类型</th>";
-				html += "<th class='col-md-2'>设备型号</th>";
-				html += "<th class='col-md-2'>在线时间</th>";
-				html += "<th class='col-md-2'></th>";
-				html += "</tr>";
-				html += "</thead>";
-				html += "<tbody>" + rows + "</tbody>";
-			}
-			$('#showSiteDetailModal_devices').html(html);
-
-			rows = "";
-			html = "";
-			for (var i=0; i<data.devices.length; i++)
-			{
-				if (data.devices[i].devtype == 'ap')
-				{
-					rows += "<tr>";
-					rows += "<td>" + data.devices[i].device_id + "</td>";
-					rows += "<td>" + data.devices[i].vendor + "</td>";
-					rows += "<td>" + data.devices[i].modal + "</td>";
-					rows += "<td>" + datetime(data.devices[i].last_user_time) + "</td>";
-					if (data.update_time + 600 < data.timestamp)
-						rows += "<td>" + data.devices[i].login_rcvd + "</td>";
-					else if (data.devices[i].last_user_time + 36000 >= data.timestamp)
-						rows += "<td>" + data.devices[i].login_rcvd + "</td>";
-					else
-						rows += "<td><span class='label label-warning'>异常</td>";
-					rows += "<td>" + datetime(data.devices[i].last_wls_time) + "</td>";
-					if (data.update_time + 600 < data.timestamp)
-						rows += "<td>" + data.devices[i].wls_rcvd + "</td>";
-					else if (data.devices[i].last_wls_time + 3600 >= data.timestamp)
-						rows += "<td>" + data.devices[i].wls_rcvd + "</td>";
-					else
-						rows += "<td><span class='label label-warning'>异常</td>";
-					rows += "<td>";
-					if (data.devices[i].registered == 1)
-					{
-						rows += "<span style='float: right;'><i class='icon-star'></i></span>";
-					}
-					else
-					{
-						@can('site_manage')
-							rows += "<span style='float: right;'><a href='javascript:;' onclick=\"deleteSiteDevice('"+data.site_id+"', '"+data.devices[i].device_id+"')\"><i class='icon-trash'></span>";
-						@endcan
-					}
-					rows += "</td>";
-					rows += "</tr>";
-				}
-			}
-			if (rows != "")
-			{
-				html += "<table class='table table-highlight-head'>";
-				html += "<thead>";
-				html += "<tr>";
-				html += "<th class='col-md-2'>APMAC</th>";
-				html += "<th>设备类型</th>";
-				html += "<th>设备型号</th>";
-				html += "<th class='col-md-2'>实名时间</th>";
-				html += "<th>实名数据量</th>";
-				html += "<th class='col-md-2'>感知时间</th>";
-				html += "<th>感知数据量</th>";
-				html += "<th></th>";
-				html += "</tr>";
-				html += "</thead>";
-				html += "<tbody>" + rows + "</tbody>";
-			}
-			$('#showSiteDetailModal_aplist').html(html);
-
-			html = "";
-			html += "<table class='table table-highlight-head'>";
-			html += "<thead>";
-			html += "<tr>";
-			html += "<th style='text-align: center;'>用户实名</th>";
-			html += "<th style='text-align: center;'>虚拟身份</th>";
-			html += "<th style='text-align: center;'>上网数据</th>";
-			html += "<th style='text-align: center;'>上网日志</th>";
-			html += "<th style='text-align: center;'>无线嗅探</th>";
-			html += "</tr>";
-			html += "</thead>";
-			html += "<tbody>";
-			html += "<tr>";
-			html += "<td style='text-align: center;'>" + datetime(data.last_user_time) + "</td>";
-			html += "<td style='text-align: center;'>" + datetime(data.last_vid_time) + "</td>";
-			html += "<td style='text-align: center;'>" + datetime(data.last_data_time) + "</td>";
-			html += "<td style='text-align: center;'>" + datetime(data.last_conn_time) + "</td>";
-			html += "<td style='text-align: center;'>" + datetime(data.last_wls_time) + "</td>";
-			html += "</tr>";
-			if (data.update_time + 600 > data.timestamp)
-			{
-				html += "<tr>";
-				html += "<td style='text-align: center;'>" + (data.last_user_time + 3600 > data.timestamp ? "<span class='label label-success'>正常</span>" : "<span class='label label-warning'>异常</span>") + "</td>";
-				html += "<td style='text-align: center;'>" + (data.last_vid_time + 3600 > data.timestamp ? "<span class='label label-success'>正常</span>" : "<span class='label label-warning'>异常</span>") + "</td>";
-				html += "<td style='text-align: center;'>" + (data.last_data_time + 3600 > data.timestamp ? "<span class='label label-success'>正常</span>" : "<span class='label label-warning'>异常</span>") + "</td>";
-				html += "<td style='text-align: center;'>" + (data.last_conn_time + 3600 > data.timestamp ? "<span class='label label-success'>正常</span>" : "<span class='label label-warning'>异常</span>") + "</td>";
-				html += "<td style='text-align: center;'>" + (data.last_wls_time + 600 > data.timestamp ? "<span class='label label-success'>正常</span>" : "<span class='label label-warning'>异常</span>") + "</td>";
-				html += "</tr>";
-			}
-			html += "</tbody>";
-			html += "</table>";
-			$('#showSiteDetailModal_status').html(html);
-
-			html = "";
-			html += "<table class='table table-highlight-head'>";
-			html += "<thead>";
-			html += "<tr>";
-			html += "<th colspan='2'></th>";
-			html += "<th style='text-align: center;'>用户登录</th>";
-			html += "<th style='text-align: center;'>用户登出</th>";
-			html += "<th style='text-align: center;'>虚拟身份</th>";
-			html += "<th style='text-align: center;'>上网数据</th>";
-			html += "<th style='text-align: center;'>上网日志</th>";
-			html += "<th style='text-align: center;'>无线嗅探</th>";
-			html += "</tr>";
-			html += "</thead>";
-			html += "<tbody>";
-			html += "<tr>";
-			html += "<td rowspan='2' style='vertical-align: middle;'>审计</td>";
-			html += "<td>接收</td>";
-			html += "<td style='text-align: center;'>" + data.stats.login_rcvd + "</td>";
-			html += "<td style='text-align: center;'>" + data.stats.logout_rcvd + "</td>";
-			html += "<td style='text-align: center;'>" + data.stats.vid_rcvd + "</td>";
-			html += "<td style='text-align: center;'>" + data.stats.data_rcvd + "</td>";
-			html += "<td style='text-align: center;'>" + data.stats.conn_rcvd + "</td>";
-			html += "<td style='text-align: center;'>" + data.stats.wls_rcvd + "</td>";
-			html += "</tr>";
-			html += "<tr>";
-			html += "<td>发送</td>";
-			html += "<td style='text-align: center;'>" + data.stats.login_sent + "</td>";
-			html += "<td style='text-align: center;'>" + data.stats.logout_sent + "</td>";
-			html += "<td style='text-align: center;'>" + data.stats.vid_sent + "</td>";
-			html += "<td style='text-align: center;'>" + data.stats.data_sent + "</td>";
-			html += "<td style='text-align: center;'>" + data.stats.conn_sent + "</td>";
-			html += "<td style='text-align: center;'>" + data.stats.wls_sent + "</td>";
-			html += "</tr>";
-			for (var i=0; i<data.vendors.length; i++)
-			{
-				html += "<tr>";
-				html += "<td rowspan='2' style='vertical-align: middle;'>" + data.vendors[i].vendor + "</br>" + data.vendors[i].server + "</td>";
-				html += "<td>接收</td>";
-				if(data.vendors[i].login_rcvd == -1){
-					html += "<td style='text-align: center;'>N/A</td>";
-				}else{
-					html += "<td style='text-align: center;'>" + data.vendors[i].login_rcvd + "</td>";
-				}
-				if(data.vendors[i].logout_rcvd == -1){
-					html += "<td style='text-align: center;'>N/A</td>";
-				}else{
-					html += "<td style='text-align: center;'>" + data.vendors[i].logout_rcvd + "</td>";
-				}
-				if(data.vendors[i].vid_rcvd == -1){
-					html += "<td style='text-align: center;'>N/A</td>";
-				}else{
-					html += "<td style='text-align: center;'>" + data.vendors[i].vid_rcvd + "</td>";
-				}
-				if(data.vendors[i].data_rcvd == -1){
-					html += "<td style='text-align: center;'>N/A</td>";
-				}else{
-					html += "<td style='text-align: center;'>" + data.vendors[i].data_rcvd + "</td>";
-				}
-				if(data.vendors[i].conn_rcvd == -1){
-					html += "<td style='text-align: center;'>N/A</td>";
-				}else{
-					html += "<td style='text-align: center;'>" + data.vendors[i].conn_rcvd + "</td>";
-				}
-				if(data.vendors[i].wls_rcvd == -1){
-					html += "<td style='text-align: center;'>N/A</td>";
-				}else{
-					html += "<td style='text-align: center;'>" + data.vendors[i].wls_rcvd + "</td>";
-				}
-				html += "</tr>";
-				html += "<tr>";
-				html += "<td>发送</td>";
-				if(data.vendors[i].login_sent == -1){
-					html += "<td style='text-align: center;'>N/A</td>";
-				}else{
-					html += "<td style='text-align: center;'>" + data.vendors[i].login_sent + "</td>";
-				}
-				if(data.vendors[i].logout_sent == -1){
-					html += "<td style='text-align: center;'>N/A</td>";
-				}else{
-					html += "<td style='text-align: center;'>" + data.vendors[i].logout_sent + "</td>";
-				}
-				if(data.vendors[i].vid_sent == -1){
-					html += "<td style='text-align: center;'>N/A</td>";
-				}else{
-					html += "<td style='text-align: center;'>" + data.vendors[i].vid_sent + "</td>";
-				}
-				if(data.vendors[i].data_sent == -1){
-					html += "<td style='text-align: center;'>N/A</td>";
-				}else{
-					html += "<td style='text-align: center;'>" + data.vendors[i].data_sent + "</td>";
-				}
-				if(data.vendors[i].conn_sent == -1){
-					html += "<td style='text-align: center;'>N/A</td>";
-				}else{
-					html += "<td style='text-align: center;'>" + data.vendors[i].conn_sent + "</td>";
-				}
-				if(data.vendors[i].wls_sent == -1){
-					html += "<td style='text-align: center;'>N/A</td>";
-				}else{
-					html += "<td style='text-align: center;'>" + data.vendors[i].wls_sent + "</td>";
-				}
-				html += "</tr>";
-			}
-			html += "</tbody>";
-			html += "</table>";
-			$('#showSiteDetailModal_stats').html(html);
-
-			$('#showSiteDetailModal').modal();
-		}
-
-		function showSiteDetail(site_id)
-		{
-			$.getJSON('{{ url('site/getSiteInfo') }}', {site_id: site_id}, function(data)
-			{
-				if (data)
-				{	
-					showSiteDetailModal(data);
-					$('#showSiteDetailModal').on('hidden.bs.modal', function () {
-						$('#site_id_'+site_id).css('color', '#908f90');
-					});
+			$.getJSON('{{ url('news/getNewsInfo') }}', {news_id: news_id}, function(data) {
+				if (data) {	
+					$('#news').html(data.description);
+					$('#showNewsDetail').modal();
+					// $('#advancedFindModal').on('hidden.bs.modal', function () {
+					// 	$('#site_id_'+site_id).css('color', '#908f90');
+					// });
 				}
 			});
 		}

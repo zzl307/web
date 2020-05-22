@@ -19,8 +19,13 @@ class NewController extends Controller
     public function home()
 	{	
 		$data = News::all()->toArray();
+		// 新闻分类
+		$type = News::newsType();
+		foreach ($data as $key => $vo) {
+			$data[$key]['type_name'] = News::type($vo['cid']);
+		}
 
-		return view('new.news', compact('data'));
+		return view('new.news', compact('data', 'type'));
 	}
 
 	// 新闻发布
@@ -28,11 +33,14 @@ class NewController extends Controller
 	{
 		if (request()->isMethod('POST')) {
 			$data = request()->all();
-			
+
     		$news = $news->updateOrcreate(['id' => $data['id']], [
     			'title' => $data['title'],
     			'keyword' => $data['keyword'],
-    			'description' => $data['description'],
+				'description' => $data['description'],
+				'status' => 1,
+				'cid' => $data['cid'],
+				'post_count' => 1000,
     		]);
 
     		if ($news) {
@@ -74,5 +82,14 @@ class NewController extends Controller
     			return redirect()->back()->with('success', '操作成功');
     		}
 		}
+	}
+
+	// 新闻详情
+	public function getNewsInfo()
+	{
+		$news_id = request()->input('news_id');
+		$new = News::getNewsInfo($news_id);
+
+		return json_encode($new);
 	}
 }
