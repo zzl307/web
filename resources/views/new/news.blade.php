@@ -257,7 +257,7 @@
 									</td>
 									<td>
 										<div class="col-md-6">
-											<input type="file" name="avatar" class="form-control-file">
+											<input type="file" name="avatar" class="form-control-file" required>
 											{{-- @if($data['avatar']) --}}
 												<br>
 												<img class="thumbnail img-responsive" src="" width="200" />
@@ -320,7 +320,7 @@
 				upload: {
 					url: '{{ route('news.upload_image') }}',
 					params: {
-					_token: '{{ csrf_token() }}'
+						_token: '{{ csrf_token() }}'
 					},
 					fileKey: 'upload_file',
 					connectionCount: 3,

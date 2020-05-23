@@ -37,7 +37,7 @@ class NewController extends Controller
 			$data = request()->all();
 
 			if (request()->avatar) {
-				$result = $uploader->save(request()->avatar, 'avatars', $news->id);
+				$result = $uploader->save(request()->avatar, 'avatars', $news->id, 285);
 				if ($result) {
 					$data['avatar'] = $result['path'];
 				}
