@@ -17,34 +17,42 @@ class SeedCategoriesData extends Migration
             [
                 'name'        => '眼部整形',
                 'description' => '眼部整形',
+                'cid'         => 1,   
             ],
             [
                 'name'        => '鼻部整形',
                 'description' => '眼部整形',
+                'cid'         => 1,
             ],
             [
                 'name'        => '胸部整形',
                 'description' => '眼部整形',
+                'cid'         => 1,
             ],
             [
                 'name'        => '面部轮廓',
                 'description' => '面部轮廓',
+                'cid'         => 1,
             ],
             [
                 'name'        => '脂肪管理',
                 'description' => '脂肪管理',
+                'cid'         => 1,
             ],
             [
                 'name'        => '抗衰老',
                 'description' => '抗衰老',
+                'cid'         => 1,
             ],
             [
                 'name'        => '微整形',
                 'description' => '微整形',
+                'cid'         => 1,
             ],
             [
                 'name'        => '皮肤面容',
                 'description' => '皮肤面容',
+                'cid'         => 1,
             ],
         ];
 

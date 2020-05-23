@@ -199,7 +199,7 @@
 					</h4>
 				</div>
 				<div class="modal-body">
-					<form class="form-horizontal row-border" action="{{ route('news.store') }}" method="post">
+					<form class="form-horizontal row-border" action="{{ route('news.store') }}" method="post" accept-charset="UTF-8" enctype="multipart/form-data">
 
 						{{ csrf_field() }}
 
@@ -253,17 +253,15 @@
 								</tr>
 								<tr>
 									<td>
-										分页显示
+										新闻封面
 									</td>
 									<td>
 										<div class="col-md-6">
-											<select class="select2-select-00 col-md-12 full-width-fix" name="list">
-												<option value="0">分页显示</option>
-												{{-- <option value="15" {{ isset($data) && $data['list'] == 15 ? 'selected' : '' }}>15</option>
-												<option value="25" {{ isset($data) && $data['list'] == 25 ? 'selected' : '' }}>25</option>
-												<option value="50" {{ isset($data) && $data['list'] == 50 ? 'selected' : '' }}>50</option>
-												<option value="100" {{ isset($data) && $data['list'] == 100 ? 'selected' : '' }}>100</option> --}}
-											</select>
+											<input type="file" name="avatar" class="form-control-file">
+											{{-- @if($data['avatar']) --}}
+												<br>
+												<img class="thumbnail img-responsive" src="" width="200" />
+											{{-- @endif --}}
 										</div>
 									</td>
 								</tr>
@@ -319,6 +317,16 @@
 		$(document).ready(function() {
 			var editor = new Simditor({
 				textarea: $('#editor'),
+				upload: {
+					url: '{{ route('news.upload_image') }}',
+					params: {
+					_token: '{{ csrf_token() }}'
+					},
+					fileKey: 'upload_file',
+					connectionCount: 3,
+					leaveConfirm: '文件上传中，关闭此页面将取消上传。'
+				},
+				pasteImage: true,
 			});
 		});
 

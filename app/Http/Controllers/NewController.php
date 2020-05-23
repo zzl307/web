@@ -7,6 +7,8 @@ use App\Category;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Pagination\Paginator;
+use App\Handlers\ImageUploadHandler;
+use Carbon\Carbon;
 
 class NewController extends Controller
 {
@@ -29,10 +31,17 @@ class NewController extends Controller
 	}
 
 	// 新闻发布
-	public function store(News $news)
+	public function store(News $news, ImageUploadHandler $uploader)
 	{
 		if (request()->isMethod('POST')) {
 			$data = request()->all();
+
+			if (request()->avatar) {
+				$result = $uploader->save(request()->avatar, 'avatars', $news->id);
+				if ($result) {
+					$data['avatar'] = $result['path'];
+				}
+			}
 
     		$news = $news->updateOrcreate(['id' => $data['id']], [
     			'title' => $data['title'],
@@ -41,10 +50,12 @@ class NewController extends Controller
 				'status' => 1,
 				'cid' => $data['cid'],
 				'post_count' => 1000,
+				'avatar' => $data['avatar'],
     		]);
 
     		if ($news) {
-    			return redirect()->back()->with('success', '操作成功');
+				return redirect()->back()->with('success', '操作成功');
+				// return redirect()->route('users.show', $user->id)->with('success', '个人资料更新成功！');
     		}
     	}
 	}
@@ -102,5 +113,29 @@ class NewController extends Controller
 		if($new->delete()) {
 			return 1;
 		};
+	}
+
+	// 图片上传
+	public function uploadImage(Request $request, ImageUploadHandler $uploader)
+	{
+		// 初始化返回数据，默认是失败的
+        $data = [
+            'success'   => false,
+            'msg'       => '上传失败!',
+            'file_path' => ''
+        ];
+        // 判断是否有上传文件，并赋值给 $file
+        if ($file = $request->upload_file) {
+            // 保存图片到本地
+            $result = $uploader->save($file, 'news', \Auth::id(), 1024);
+            // 图片保存成功的话
+            if ($result) {
+                $data['file_path'] = $result['path'];
+                $data['msg']       = "上传成功!";
+                $data['success']   = true;
+            }
+		}
+		
+        return $data;
 	}
 }

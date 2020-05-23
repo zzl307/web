@@ -12,7 +12,7 @@ class News extends Model
     // public $timestamps = false;
 
     protected $fillable = [
-        'title', 'keyword', 'description', 'status', 'post_count', 'post_count', 'cid'
+        'title', 'keyword', 'description', 'status', 'post_count', 'post_count', 'cid', 'avatar'
     ];
 
     // 新闻分类
