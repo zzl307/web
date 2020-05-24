@@ -36,6 +36,7 @@ class NewController extends Controller
 		if (request()->isMethod('POST')) {
 			$data = request()->all();
 
+
 			if (request()->avatar) {
 				$result = $uploader->save(request()->avatar, 'avatars', $news->id, 285);
 				if ($result) {
@@ -137,5 +138,19 @@ class NewController extends Controller
 		}
 		
         return $data;
+	}
+
+	// 新闻编辑
+	public function newStore()
+	{
+		$id = request()->input('id');
+
+		if (empty($id)) {
+			return 1;
+		}
+
+		$new = News::where('id', $id)->first()->toArray();
+
+		return json_encode($new);
 	}
 }

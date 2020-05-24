@@ -3,6 +3,7 @@
 @section('style')
 	<link href="{{ asset('static/css/city-picker.css') }}" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/simditor.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
 	<style>
 		.widget-content.no-padding .dataTables_header{
 			border-top: 1px solid #ddd;
@@ -16,6 +17,9 @@
 			font-size: 11px;
 			border: 0px;
 			background: #fff;
+		}
+		.simditor-body img {
+			max-width:100%;
 		}
 	</style>
 @stop
@@ -45,7 +49,7 @@
 								</i>
 								刷新
                             </span>
-                            <a data-toggle="modal" href="#advancedSearchModal" style="text-decoration: none;float: right;">
+                            <a data-toggle="modal" onclick="storeNews()" style="text-decoration: none;float: right;">
 								<span class="btn btn-xs btn-info" style="border-left: 0px;">
 									<i class="icon-edit">
 									</i>
@@ -151,14 +155,14 @@
                                         {{ $vo['updated_at'] }}
 									</td>
 									<td>
-										<a href="javascript:;" onclick="showNewsDetail('{{ $vo['id'] }}')" class="btn btn-xs bs-tooltip" title="详情" id="news_id_{{ $vo['id'] }}">
+										<a onclick="showNewsDetail('{{ $vo['id'] }}')" class="btn btn-xs bs-tooltip" title="详情" id="news_id_{{ $vo['id'] }}">
 											<i class="icon-eye-open"></i>
 										</a>
-										<a href="" class="btn btn-xs bs-tooltip" title="修改">
+										<a onclick="storeNews('{{ $vo['id'] }}')" class="btn btn-xs bs-tooltip" title="修改">
 											<i class="icon-edit">
 											</i>
 										</a>
-										<a href="javascript:;" onclick="deleteNews('{{ $vo['id'] }}')" class="btn btn-xs bs-tooltip" title="删除">
+										<a onclick="deleteNews('{{ $vo['id'] }}')" class="btn btn-xs bs-tooltip" title="删除">
 											<i class="icon-trash">
 											</i>
 										</a>
@@ -203,7 +207,7 @@
 
 						{{ csrf_field() }}
 
-						<input type="hidden" name="id" value="{{ isset($data['id']) ? $data['id'] : '' }}">
+						<input type="hidden" name="id" id="id" value="">
 						<table class="table table-hover table-striped table-bordered table-highlight-head">
 							<tbody>
 								<tr>
@@ -212,7 +216,7 @@
 									</td>
 									<td>
 										<div class="col-md-6">
-											<input class="form-control" name="title" value="" type="text" placeholder="新闻标题" required>
+											<input class="form-control" name="title" id="title" value="" type="text" placeholder="新闻标题" required>
 										</div>
 									</td>
 								</tr>
@@ -222,7 +226,7 @@
 									</td>
 									<td>
 										<div class="col-md-6">
-											<input class="form-control" name="keyword" value="" type="text" placeholder="已逗号隔开" required>
+											<input class="form-control" name="keyword" id="keyword" value="" type="text" placeholder="已逗号隔开" required>
 										</div>
 									</td>
 								</tr>
@@ -232,8 +236,7 @@
 									</td>
 									<td>
 										<div class="col-md-6">
-											<select class="select2-select-00 col-md-12 full-width-fix" name="cid" required>
-												<option value="0" selected>全部</option>
+											<select class="select2-select-00 col-md-12 full-width-fix" name="cid" id="cid" required>
 												@foreach ($type as $vo)
 													<option value="{{ $vo['id'] }}">{{ $vo['name'] }}</option>
 												@endforeach
@@ -242,12 +245,12 @@
 									</td>
 								</tr>
 								<tr>
-									<td>
+									<td class="col-md-1">
 										新闻详情
 									</td>
-									<td>
+									<td class="col-md-12">
 										<div class="col-md-12">
-											<textarea rows="15" cols="5" id="editor" name="description" class="form-control" placeholder="新闻详情" required>{{ isset($data['description']) ? $data['description'] : '' }}</textarea>
+											<textarea rows="15" cols="5" id="editor" name="description" class="form-control" required>{{ isset($data['description']) ? $data['description'] : '' }}</textarea>
 										</div>
 									</td>
 								</tr>
@@ -260,7 +263,7 @@
 											<input type="file" name="avatar" class="form-control-file" required>
 											{{-- @if($data['avatar']) --}}
 												<br>
-												<img class="thumbnail img-responsive" src="" width="200" />
+												<img class="thumbnail img-responsive" id="avatar" src="" width="200" />
 											{{-- @endif --}}
 										</div>
 									</td>
@@ -349,6 +352,30 @@
 				if (data == 1) {
 					alert('删除成功');
 					location.reload();
+				}
+			});
+		}
+
+		function storeNews(id){
+			$.getJSON('{{ url('news/newStore') }}', {id: id}, function(data){
+				if(data == 1){
+					$('#title').val('');
+					$('#keyword').val('');
+					$('.simditor-body').html('');
+					$('#avatar').attr('src', '');
+					$('#id').val('');
+					$('#editor').val('');
+
+					$('#advancedSearchModal').modal();
+				}else{
+					$('#title').val(data.title);
+					$('#keyword').val(data.keyword);
+					$('.simditor-body').html(data.description);
+					$('#avatar').attr('src', data.avatar);
+					$('#id').val(data.id);
+					$('#editor').val(data.description);
+
+					$('#advancedSearchModal').modal();
 				}
 			});
 		}

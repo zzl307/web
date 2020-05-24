@@ -33,6 +33,7 @@ Route::group(['prefix' => 'news'], function () {
 		Route::any('getNewsInfo', 'NewController@getNewsInfo');
 		Route::any('deleteNews', 'NewController@deleteNews');
 		Route::post('upload_image', 'NewController@uploadImage')->name('news.upload_image');
+		Route::any('newStore', 'NewController@newStore');
 		// Route::any('export', 'SiteController@export');
 		// // API
 		// Route::any('getSiteInfo', 'SiteController@getSiteInfo');
