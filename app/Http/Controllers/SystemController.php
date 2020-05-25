@@ -22,15 +22,11 @@ class SystemController extends Controller
         if (request()->isMethod('POST')) {
             $data = request()->all();
 
-			if (!empty(request()->avatar) || !empty(request()->id)) {
-				$result = $uploader->save(request()->avatar, 'avatars', $banners->id, 1920);
-				if ($result) {
-					$data['avatar'] = $result['path'];
-				}
-            } else {
-                $avatar = Banners::where('id', $data['id'])->get();
-                $data['avatar'] = $avatar[0]['avatar'];
-                $data['title'] = $avatar[0]['title'];
+            if (empty($data['id'])) {
+                $result = $uploader->save(request()->avatar, 'avatars', $banners->id, 1920);
+                if ($result) {
+                    $data['avatar'] = $result['path'];
+                }
             }
 
     		$banners = $banners->updateOrcreate(['id' => $data['id']], [

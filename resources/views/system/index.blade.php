@@ -214,7 +214,7 @@
     
     {{-- 修改状态 --}}
     <div class="modal fade" id="storeStatus">
-		<div class="modal-dialog" style="width: 1500px;">
+		<div class="modal-dialog" style="width: 700px;">
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
@@ -230,6 +230,8 @@
 						{{ csrf_field() }}
 
 						<input type="hidden" name="id" id="id" value="">
+						<input type="hidden" name="avatar" id="avatar" value="">
+						<input type="hidden" name="title" id="title" value="">
 						<table class="table table-hover table-striped table-bordered table-highlight-head">
 							<tbody>
 								<tr>
@@ -290,6 +292,8 @@
                 $('#id').val(data.id);
                 $('#status').html(option);
                 $('#status_store .select2-chosen').html(title);
+                $('#avatar').val(data.avatar);
+                $('#title').val(data.title);
 
                 $('#storeStatus').modal();
 			});
