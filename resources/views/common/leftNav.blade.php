@@ -16,11 +16,27 @@
 <!-- 左侧导航栏 -->
 <ul id="nav">
 	<li class="@if(Request::segment(1) == 'system') current @endif">
-		<a href="{{ url('system') }}">
+		<a href="javascript:void(0)">
 			<i class="icon-dashboard">
 			</i>
 			系统设置
 		</a>
+		<ul class="sub-menu">
+			<li class="{{Request::segment(2) == 'banner' ? 'current' : ''}}">
+				<a href="{{ url('system/banner') }}">
+					<i class="icon-caret-right">
+					</i>
+					网站Banner
+				</a>
+			</li>
+			<li class="{{Request::segment(2) == 'seo' ? 'current' : ''}}">
+				<a href="{{ url('system/system') }}">
+					<i class="icon-caret-right">
+					</i>
+					网站优化
+				</a>
+			</li>
+		</ul>
 	</li>
 	<li class="@if(Request::segment(1) == 'news') current @endif">
 		<a href="javascript:void(0)">

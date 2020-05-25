@@ -36,7 +36,6 @@ class NewController extends Controller
 		if (request()->isMethod('POST')) {
 			$data = request()->all();
 
-
 			if (request()->avatar) {
 				$result = $uploader->save(request()->avatar, 'avatars', $news->id, 285);
 				if ($result) {
