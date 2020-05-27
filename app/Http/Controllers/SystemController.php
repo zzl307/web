@@ -8,6 +8,11 @@ use App\Handlers\ImageUploadHandler;
 
 class SystemController extends Controller
 {
+    public function __construct()
+	{
+		$this->middleware('auth');
+    }
+    
     // banner管理
     public function index()
     {   

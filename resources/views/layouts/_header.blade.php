@@ -1,16 +1,13 @@
 <section class="bannerIndex">
     <div class="swiper-container bannerSwiper">
         <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <a href="#" class="iBlock">
-                    <img src="{{ asset('image/banner.png') }}" alt="" />
-                </a>
-            </div>
-            <div class="swiper-slide">
-                <a href="#" class="iBlock">
-                    <img src="{{ asset('image/banner02.png') }}" alt="" />
-                </a>
-            </div>
+            @foreach ($data as $vo)
+                <div class="swiper-slide">
+                    <a href="#" class="iBlock">
+                        <img src="{{ $vo->avatar }}" alt="{{ $vo->title }}" />
+                    </a>
+                </div>                   
+            @endforeach
         </div>
         <div class="swiper-button-prev bannerButton borderCircle ani">
             <em class="fourIcon iBlock"></em>

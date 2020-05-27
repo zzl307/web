@@ -2,14 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Banners;
 use Illuminate\Http\Request;
 
 class StaticPagesController extends Controller
 {
     // 首页
-    public function index()
+    public function index(Banners $banners)
     {
-        return view('static_pages/index');
+        $data = Banners::where('status', 1)->get();
+
+        return view('static_pages/index', compact('data'));
     }
 
     // 列表
