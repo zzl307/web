@@ -145,7 +145,7 @@
 
 	{{-- 发布Banner --}}
 	<div class="modal fade" id="advancedSearchModal">
-		<div class="modal-dialog" style="width: 1500px;">
+		<div class="modal-dialog" style="width: 1200px;">
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
