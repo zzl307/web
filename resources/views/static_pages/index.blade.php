@@ -204,14 +204,16 @@
             <div class="ppXushu ppcontent relative fl">
                 <h3>新闻资讯</h3>
                 <ul>
-                    <li class="boxIndex">
-                        <img src="{{ asset('image') }}/285.png" />
-                        <p style="font-size: 14px;text-indent: 2em;">新闻资讯新闻资讯新闻资讯新闻资讯新闻资讯新闻资讯新闻资讯新闻资讯新闻资讯新</p>
-                    </li>
-                    <li class="boxIndex">
-                        <img src="{{ asset('image') }}/2852.png" />
-                        <p style="font-size: 14px;text-indent: 2em;">新闻资讯新闻资讯新闻资讯新闻资讯新闻资讯新闻资讯新闻资讯新闻资讯新闻资讯新</p>
-                    </li>
+                    @foreach ($news as $vo)
+                        <li class="boxIndex">
+                            <a href="{{ $vo->link() }}">
+                                <img src="{{ $vo->avatar }}" alt="{{ $vo->titile }}" style="width: 285px;height: 250px;">
+                                <p style="font-size: 14px;text-indent: 2em;">
+                                    {{ $vo->title }}
+                                </p>
+                            </a>
+                        </li>                       
+                    @endforeach
                 </ul>
                 <span class="ppBtn ppPrev absolute">
                     <i class="fourIcon iBlock"></i>
@@ -223,14 +225,16 @@
             <div class="ppSafe ppcontent relative fl">
                 <h3>企业文化</h3>
                 <ul>
-                    <li class="boxIndex">
-                        <img src="{{ asset('image') }}/285.png" />
-                        <p style="font-size: 14px;text-indent: 2em;">新闻资讯新闻资讯新闻资讯新闻资讯新闻资讯新闻资讯新闻资讯新闻资讯新闻资讯新</p>
-                    </li>
-                    <li class="boxIndex">
-                        <img src="{{ asset('image') }}/2852.png" />
-                        <p style="font-size: 14px;text-indent: 2em;">新闻资讯新闻资讯新闻资讯新闻资讯新闻资讯新闻资讯新闻资讯新闻资讯新闻资讯新</p>
-                    </li>
+                    @foreach ($company as $vo)
+                        <li class="boxIndex">
+                            <a href="">
+                                <img src="{{ $vo->avatar }}" alt="{{ $vo->titile }}" style="width: 285px;height: 250px;">
+                                <p style="font-size: 14px;text-indent: 2em;">
+                                    {{ $vo->title }}
+                                </p>
+                            </a>
+                        </li>                       
+                    @endforeach
                 </ul>
                 <span class="ppBtn ppPrev absolute">
                     <i class="fourIcon iBlock"></i>
@@ -242,14 +246,16 @@
             <div class="ppshebei ppcontent relative fl">
                 <h3>案例展示</h3>
                 <ul>
-                    <li class="boxIndex">
-                        <img src="{{ asset('image') }}/285.png" />
-                        <p style="font-size: 14px;text-indent: 2em;">新闻资讯新闻资讯新闻资讯新闻资讯新闻资讯新闻资讯新闻资讯新闻资讯新闻资讯新</p>
-                    </li>
-                    <li class="boxIndex">
-                        <img src="{{ asset('image') }}/2852.png" />
-                        <p style="font-size: 14px;text-indent: 2em;">新闻资讯新闻资讯新闻资讯新闻资讯新闻资讯新闻资讯新闻资讯新闻资讯新闻资讯新</p>
-                    </li>
+                    @foreach ($list as $vo)
+                        <li class="boxIndex">
+                            <a href="">
+                                <img src="{{ $vo->avatar }}" alt="{{ $vo->titile }}" style="width: 285px;height: 250px;">
+                                <p style="font-size: 14px;text-indent: 2em;">
+                                    {{ $vo->title }}
+                                </p>
+                            </a>
+                        </li>                       
+                    @endforeach
                 </ul>
                 <span class="ppBtn ppPrev absolute">
                     <i class="fourIcon iBlock"></i>
@@ -261,14 +267,16 @@
             <div class="ppEnvironment ppcontent relative fl">
                 <h3>培训技术</h3>
                 <ul>
-                    <li class="boxIndex">
-                        <img src="{{ asset('image') }}/285.png" />
-                        <p style="font-size: 14px;text-indent: 2em;">新闻资讯新闻资讯新闻资讯新闻资讯新闻资讯新闻资讯新闻资讯新闻资讯新闻资讯新</p>
-                    </li>
-                    <li class="boxIndex">
-                        <img src="{{ asset('image') }}/2852.png" />
-                        <p style="font-size: 14px;text-indent: 2em;">新闻资讯新闻资讯新闻资讯新闻资讯新闻资讯新闻资讯新闻资讯新闻资讯新闻资讯新</p>
-                    </li>
+                    @foreach ($training as $vo)
+                        <li class="boxIndex">
+                            <a href="">
+                                <img src="{{ $vo->avatar }}" alt="{{ $vo->titile }}" style="width: 285px;height: 250px;">
+                                <p style="font-size: 14px;text-indent: 2em;">
+                                    {{ $vo->title }}
+                                </p>
+                            </a>
+                        </li>                       
+                    @endforeach
                 </ul>
                 <span class="ppBtn ppPrev absolute">
                     <i class="fourIcon iBlock"></i>

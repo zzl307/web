@@ -39,4 +39,9 @@ class News extends Model
 
         return $data;
     }
+
+    public function link($params = [])
+    {
+        return route('details', array_merge([$this->id, $this->slug], $params));
+    }
 }

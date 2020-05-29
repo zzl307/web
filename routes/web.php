@@ -19,7 +19,7 @@ Route::get('/', 'StaticPagesController@index')->name('index');
 // 列表
 Route::get('news', 'StaticPagesController@news')->name('news');
 // 详情
-Route::get('details', 'StaticPagesController@details')->name('details');
+Route::get('details/{id}/{slug?}', 'StaticPagesController@details')->name('details');
 
 Auth::routes();
 

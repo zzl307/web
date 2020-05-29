@@ -17,7 +17,7 @@ class Category extends Model
 		$categorys = array();
 		foreach (Category::all()->toArray() as $u)
 		{	
-			if ($u['cid'] == 1) {
+			if ($u['cid'] == 0) {
 				$category['cid_name'] = '一级分类';
 			} else {
 				$data = Category::where('id', $u['cid'])->first()->toArray();

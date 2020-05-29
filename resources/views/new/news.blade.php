@@ -126,7 +126,7 @@
                             </tr>
                         </thead>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
                         <tbody>
-                            @foreach($data as $vo)
+                            @foreach($paginator as $vo)
                                 <tr>
                                     <td>
                                         {{ $vo['id'] }}
@@ -138,7 +138,7 @@
 										{{ $vo['keyword'] }}
                                     </td>
                                     <td>
-                                        <span class="label label-danger">
+                                        <span class="label label-info">
 											{{ $vo['type_name'] }}
 										</span>
                                     </td>
@@ -175,14 +175,14 @@
                 <div class="dataTables_footer clearfix" style="padding: 12px 0;border-top: 1px solid #ddd;">
                     <div class="col-md-6">
                         <div class="dataTables_info">
-                            <strong>总计：</strong>
+                            <strong>总计：{{ $total }}</strong>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="dataTables_paginate paging_bootstrap">
-                            {{-- @if(isset($paginator))
+                            @if(isset($paginator))
                                 {{ $paginator->links() }}
-                            @endif --}}
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -320,6 +320,7 @@
 		$(document).ready(function() {
 			var editor = new Simditor({
 				textarea: $('#editor'),
+				toolbar: ['title', 'bold','italic', 'underline', 'strikethrough', 'fontScale', 'color', 'ol', 'ul', 'blockquote', 'code', 'table', 'link', 'image', 'hr', 'indent', 'outdent', 'alignment'],
 				upload: {
 					url: '{{ route('news.upload_image') }}',
 					params: {
@@ -374,6 +375,8 @@
 					$('#avatar').attr('src', data.avatar);
 					$('#id').val(data.id);
 					$('#editor').val(data.description);
+					$(".select2-select-00").append("<option value="+data.cid+" selected>"+data.new_type+"</option>");
+					$(".select2-select-00").trigger('change');
 
 					$('#advancedSearchModal').modal();
 				}

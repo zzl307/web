@@ -5,17 +5,15 @@
         <!-- list -->
         <div class="viewbox">
             <div class="title">
-                <h1>南京双眼皮埋线手术后忌口多久？</h1>
+                <h1>{{ $data->title }}</h1>
             </div>
             <div class="info">
-                <span>发布时间：</span>2020-10-08 09:04
-                <span>本文关键词:</span><a href="/syp/" style="color:#ae081f;font-size:15px"> 双眼皮 </a>
-                <span> 文章来源:</span><a href="#" style="color:#ae081f;font-size:15px">安安美容整形</a>
+                <span>发布时间：</span>{{ $data->created_at }}
+                <span>本文关键词:</span><a href="" style="color: #6a9bd3;font-size: 15px"> {{ $data->keyword }} </a>
+                <span> 文章来源:</span><a href="#" style="color: #6a9bd3;font-size: 15px"> 安安美容整形</a>
             </div>
             <div class="content">
-                <p style="text-align: center;">
-                    　　眼睛是心灵的窗户，一双灵动的眼睛会让我们看起来更加的具有魅力，但是现实生活中很多人的眼睛比较小，没有精神，会通过埋线双眼皮来做改善，那么，南京<a
-                        href="#">双眼皮埋线</a>手术后忌口多久?</p>
+                {!! $data->description !!}
             </div>
             <div class="zx_ol" style="width:406px; margin:0 auto;"> <img src="" border="0" usemap="#Map2" />
                 <map name="Map2" id="Map2">
@@ -25,8 +23,8 @@
             </div>
             <div class="context">
                 <ul>
-                    <li>上一篇：<a href='3'>南京割双眼皮的价格需要多少？</a> </li>
-                    <li>下一篇：<a href='3'>在南京开双眼皮多少钱？</a> </li>
+                    <li>上一篇：<a href='{{ route('details', ['id' => $previousNewsID]) }}'>{{ $previousNewsTitle['title'] }}</a> </li>
+                    <li>下一篇：<a href='{{ route('details', ['id' => $nextNewsId]) }}'>{{ $nextNewsTitle['title'] }}</a> </li>
                 </ul>
             </div>
         </div>

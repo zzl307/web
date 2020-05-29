@@ -16,7 +16,16 @@
     {{-- Styles --}}
     <link href="{{ asset('css/common.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/swiper.min.css') }}" rel="stylesheet">
+	<link href="{{ asset('css/swiper.min.css') }}" rel="stylesheet">
+	<style>
+		.navlist .subNav010 em,
+		.navlist .subNav010.on em {
+			width: 24px;
+			height: 24px;
+			background-position: -373px -55px;
+			margin-top: 18px;
+		}
+	</style>
 	{{-- <script type="text/javascript" src="./static/js/yixingswt.js"></script> --}}
 	<script type="text/javascript">
 		try {
