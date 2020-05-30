@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 // 首页
 Route::get('/', 'StaticPagesController@index')->name('index');
 // 列表
-Route::get('news', 'StaticPagesController@news')->name('news');
+Route::get('newsList/{id}', 'StaticPagesController@news')->name('news.list');
 // 详情
 Route::get('details/{id}/{slug?}', 'StaticPagesController@details')->name('details');
 

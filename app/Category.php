@@ -38,4 +38,9 @@ class Category extends Model
 
 		return $categorys;
 	}
+
+	public function get_category_title($id)
+	{
+		return Category::where('id', $id)->first();
+	}
 }

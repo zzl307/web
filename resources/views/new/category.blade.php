@@ -200,7 +200,7 @@
 											<select class="select2-select-00 col-md-12 full-width-fix" name="cid" required>
 												<option value="0" selected>一级分类</option>
 												@foreach ($data as $vo)
-													<option value="{{ $vo['cid'] }}" {{ isset($vo) && $vo['cid'] == 1 ? 'selected' : '' }}>{{ $vo['name'] }}</option>
+													<option value="{{ $vo['id'] }}" {{ isset($vo) && $vo['id'] == 1 ? 'selected' : '' }}>{{ $vo['name'] }}</option>
 												@endforeach
 											</select>
 										</div>

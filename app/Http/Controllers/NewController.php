@@ -95,7 +95,9 @@ class NewController extends Controller
 			$categorys = $categorys->updateOrcreate(['id' => $data['id']], [
     			'name' => $data['name'],
     			'cid' => $data['cid'],
-    			'description' => $data['name'],
+				'description' => $data['name'],
+				'status' => 1,
+				'post_count' => 0,
 			]);
 			
 			if ($categorys) {

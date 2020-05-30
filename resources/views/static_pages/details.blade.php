@@ -1,4 +1,14 @@
 @extends('layouts.common')
+
+@section('style')
+    <style>
+        #mapContainer {
+            width: 308px;
+            height: 300px;
+        }
+    </style>
+@endsection
+
 @section('content')
 <div class="body">
     <div class="body_con mt2">
@@ -62,20 +72,34 @@
                         <div class="stage1Title">
                             <span class="fonts">最新文章</span>
                         </div>
-                        <div style='overflow: hidden;'>
-                            <img src="{{ $new->avatar }}" alt="{{ $new->keyword }}" style="width: 276px;height: 215px;border-radius: 5px;">
-                        </div>
-                        <p class="fonts">
-                            {{ make_excerpt($new->description) }}
-                        </p>
+                        <a href="{{ $new->link() }}">
+                            <div style='overflow: hidden;'>
+                                <img src="{{ $new->avatar }}" alt="{{ $new->keyword }}" style="width: 276px;height: 215px;border-radius: 5px;">
+                            </div>
+                            <p class="fonts">
+                                {{ make_excerpt($new->description) }}
+                            </p>
+                        </a>
                     </div>
                     <div class="contactUsBox left" style="border-radius: 5px;margin-top: 15px;">
                         <div class="contactUsTitle fonts">联系我们</div>
-                        <div class="contactWrapper"><img src="{{ asset('image/308.png') }}" alt="安安整形地址"> </div>
+                        <div id="mapContainer"></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+@endsection
+
+@section('javascript')
+    <script src="https://webapi.amap.com/maps?v=1.4.15&key=4e5555120b4d8108ced47cc0bcb81b91"></script>
+    <script type="text/javascript" >
+        var map = new AMap.Map('mapContainer',{
+            zoom: 18,
+            center: [118.783414,32.0252]
+        });
+        var toolbar = new AMap.ToolBar();
+        map.plugin(toolbar);
+    </script>
 @endsection

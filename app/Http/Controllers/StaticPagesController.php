@@ -13,27 +13,8 @@ class StaticPagesController extends Controller
     public function index(Banners $banners, Category $category)
     {
         $data = Banners::where('status', 1)->get();
-        $category_status = Category::where('cid', 0)->get();
-        $category = collect(Category::all())->toArray();
-
-        $tree = array();
-        foreach($category as $category_data){
-            $tree[$category_data['id']] = $category_data;
-            $tree[$category_data['id']]['children'] = array();
-        }
-        foreach($tree as $key => $item){
-            if($item['cid'] != 0){
-                $tree[$item['cid']]['children'][] = &$tree[$key];
-                if($tree[$key]['children'] == null){
-                    unset($tree[$key]['children']);
-                }
-            }
-        }
-        foreach($tree as $key => $category){
-            if($category['cid'] != 0){
-                unset($tree[$key]);
-            }
-        }
+        $category_status = get_category_status();
+        $tree = get_category_tree();
 
         // 新闻资讯
         $news = News::where('cid', 11)->take(8)->get();
@@ -48,9 +29,21 @@ class StaticPagesController extends Controller
     }
 
     // 列表
-    public function news()
-    {
-        return view('static_pages.news');
+    public function news(Category $category, News $news, $id)
+    {   
+        $new_category = Category::where('cid', $id)->get();
+        $new = array();
+        foreach ($new_category as $vo) {
+            $new[] = $vo->id;
+        }
+        
+        $new = News::whereIn('cid', $new)->get();
+
+        $category_status = get_category_status();
+        $tree = get_category_tree();
+        $category_title = $category->get_category_title($id);
+
+        return view('static_pages.news', compact('category_status', 'tree','new_category', 'new', 'category_title'));
     }
 
     // 详情
@@ -72,6 +65,9 @@ class StaticPagesController extends Controller
 
         $new = News::orderBy('id', 'desc')->first();
 
-        return view('static_pages.details', compact('data', 'previousNewsID', 'nextNewsId', 'previousNewsTitle', 'nextNewsTitle', 'links', 'new'));
+        $category_status = get_category_status();
+        $tree = get_category_tree();
+
+        return view('static_pages.details', compact('data', 'previousNewsID', 'nextNewsId', 'previousNewsTitle', 'nextNewsTitle', 'links', 'new', 'category_status', 'tree'));
     }
 }
