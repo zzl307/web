@@ -36,13 +36,13 @@ class StaticPagesController extends Controller
         }
 
         // 新闻资讯
-        $news = News::where('cid', 14)->take(8)->get();
+        $news = News::where('cid', 11)->take(8)->get();
         // 企业文化
-        $company = News::where('cid', 15)->take(8)->get();
+        $company = News::where('cid', 12)->take(8)->get();
         // 案例展示
-        $list = News::where('cid', 16)->take(8)->get();
+        $list = News::where('cid', 13)->take(8)->get();
         // 培训技术
-        $training = News::where('cid', 17)->take(8)->get();
+        $training = News::where('cid', 14)->take(8)->get();
 
         return view('static_pages/index', compact('data', 'category_status', 'tree', 'news', 'company', 'list', 'training'));
     }
@@ -54,7 +54,7 @@ class StaticPagesController extends Controller
     }
 
     // 详情
-    public function details($id)
+    public function details(News $news, $id)
     {   
         $data = News::where('id', $id)->first();
         $previousNewsID = News::where('id', '<', $id)->max('id');
@@ -68,6 +68,10 @@ class StaticPagesController extends Controller
             return redirect($data->link(), 301);
         }
 
-        return view('static_pages.details', compact('data', 'previousNewsID', 'nextNewsId', 'previousNewsTitle', 'nextNewsTitle'));
+        $links = $news->getAllCached();
+
+        $new = News::orderBy('id', 'desc')->first();
+
+        return view('static_pages.details', compact('data', 'previousNewsID', 'nextNewsId', 'previousNewsTitle', 'nextNewsTitle', 'links', 'new'));
     }
 }

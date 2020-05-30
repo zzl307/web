@@ -24,5 +24,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         \App\News::observe(\App\Observers\NewObserver::class);
+        \App\Link::observe(\App\Observers\LinkObserver::class);
     }
 }

@@ -9,7 +9,7 @@ class Category extends Model
     // public $timestamps = false;
 
     protected $fillable = [
-        'name', 'description', 'cid'
+        'name', 'description', 'cid', 'status', 'post_count'
     ];
 
     public static function category()

@@ -23,29 +23,51 @@
             </div>
             <div class="context">
                 <ul>
-                    <li>上一篇：<a href='{{ route('details', ['id' => $previousNewsID]) }}'>{{ $previousNewsTitle['title'] }}</a> </li>
-                    <li>下一篇：<a href='{{ route('details', ['id' => $nextNewsId]) }}'>{{ $nextNewsTitle['title'] }}</a> </li>
+                    @if (!isset($previousNewsID) && !isset($nextNewsId))
+                        <li>上一篇：没有了</li>                            
+                        <li>下一篇：没有了</li>
+                    @elseif(!isset($previousNewsID))
+                        <li>上一篇：没有了</li>
+                        <li>下一篇：<a href='{{ route('details', ['id' => $nextNewsId, 'slug' => $nextNewsTitle['slug']]) }}'>{{ $nextNewsTitle['title'] }}</a></li>
+                    @elseif(!isset($nextNewsId))
+                        <li>上一篇：<a href='{{ route('details', ['id' => $previousNewsID ?? '', 'slug' => $previousNewsTitle['slug'] ?? '']) }}'>{{ $previousNewsTitle['title'] ?? '' }}</a></li>
+                        <li>下一篇：没有了</li>
+                    @else
+                        <li>上一篇：<a href='{{ route('details', ['id' => $previousNewsID ?? '', 'slug' => $previousNewsTitle['slug']]) }}'>{{ $previousNewsTitle['title'] }}</a></li>
+                        <li>下一篇：<a href='{{ route('details', ['id' => $nextNewsId, 'slug' => $nextNewsTitle['slug']]) }}'>{{ $nextNewsTitle['title'] }}</a></li>
+                    @endif
                 </ul>
             </div>
         </div>
         <div class="siderbar mt2">
             <div class="banner_300">
                 <div class="stage1">
-                    <div class="stage1-width stage1_c left" style="border-radius: 5px;margin-top: 15px;">
-                        <div class="stage1Title">
-                            <span class="fonts"><a href='' title="">推荐阅读</a></span>
-                        </div>
-                        <div class="expertSlide relative">
-                            <ul class='list on'>
-                                <li><em>1.</em><a href="/syp/1312.html" class="titlen">南京做双眼皮多久能恢复？</a> </li>
-                            </ul>
-                        </div>
-                    </div>
+                    @if (count($links))
+                        <div class="stage1-width stage1_c left" style="border-radius: 5px;margin-top: 15px;">
+                            <div class="stage1Title">
+                                <span class="fonts"><a href='' title="">推荐阅读</a></span>
+                            </div>
+                            <div class="expertSlide relative">
+                                <ul class='list on'>
+                                    @foreach ($links as $key => $vo)
+                                        <li>
+                                            <em>{{ $key+1 }}.</em><a href="{{ $vo->link() }}" class="titlen">&nbsp;{{ $vo->title }}</a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>                            
+                    @endif
                     <div class="stage2_width stage3_c left" style="border-radius: 5px;margin-top: 15px;">
-                        <div class="stage1Title"> <span class="fonts">最新文章</span> </div>
-                        <div style='overflow: hidden;'><img src="/statics/images/hj01.jpg" alt="安安医疗美容大厦" /></div>
+                        <div class="stage1Title">
+                            <span class="fonts">最新文章</span>
+                        </div>
+                        <div style='overflow: hidden;'>
+                            <img src="{{ $new->avatar }}" alt="{{ $new->keyword }}" style="width: 276px;height: 215px;border-radius: 5px;">
+                        </div>
                         <p class="fonts">
-                            安安整形美容美丽只要私人定制的技术及服务理念。安安医疗美容医院的成立为爱美者提供了时尚，舒适的医美服务</p>
+                            {{ make_excerpt($new->description) }}
+                        </p>
                     </div>
                     <div class="contactUsBox left" style="border-radius: 5px;margin-top: 15px;">
                         <div class="contactUsTitle fonts">联系我们</div>
