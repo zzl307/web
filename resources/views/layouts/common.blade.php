@@ -9,9 +9,9 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <meta name="keywords" content="">
-	<meta name="description" content="">
-    <title>@yield('title', '安安美容整形') - 安安美容整形</title>
+    <meta name="keywords" content="安安整形,安安整容,安安整形医院,南京整形美容,南京整形医院,南京整容医院,南京整形美容医院,南京安安整形医院">
+	<meta name="description" content="南京安安整形医院,是南京整形美容,南京整形医院,南京整容医院,江苏好的整形医院。相继成就中国南京整形医院排行连锁品牌,提供丰胸,隆胸,隆鼻整形,吸脂减肥,双眼皮,祛斑,祛痘,无创美容,等南京整形美容医院的服务">
+    <title>@yield('title', '南京安安整形美容医院【官网】_安安整形_安安美容_南京整形医院_南京整形美容医院') - 安安美容整形</title>
     
     {{-- Styles --}}
     <link href="{{ asset('css/common.css') }}" rel="stylesheet">
