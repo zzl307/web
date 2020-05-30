@@ -227,7 +227,7 @@
                 <ul>
                     @foreach ($company as $vo)
                         <li class="boxIndex">
-                            <a href="">
+                            <a href="{{ $vo->link() }}">
                                 <img src="{{ $vo->avatar }}" alt="{{ $vo->titile }}" style="width: 285px;height: 250px;">
                                 <p style="font-size: 14px;text-indent: 2em;">
                                     {{ $vo->title }}
@@ -248,7 +248,7 @@
                 <ul>
                     @foreach ($list as $vo)
                         <li class="boxIndex">
-                            <a href="">
+                            <a href="{{ $vo->link() }}">
                                 <img src="{{ $vo->avatar }}" alt="{{ $vo->titile }}" style="width: 285px;height: 250px;">
                                 <p style="font-size: 14px;text-indent: 2em;">
                                     {{ $vo->title }}
@@ -269,7 +269,7 @@
                 <ul>
                     @foreach ($training as $vo)
                         <li class="boxIndex">
-                            <a href="">
+                            <a href="{{ $vo->link() }}">
                                 <img src="{{ $vo->avatar }}" alt="{{ $vo->titile }}" style="width: 285px;height: 250px;">
                                 <p style="font-size: 14px;text-indent: 2em;">
                                     {{ $vo->title }}

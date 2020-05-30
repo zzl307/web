@@ -57,14 +57,14 @@
                 </div>
                 <div class='subMenuPics fr'>
                     <a href='javascript:void(0)' onClick='openZoosUrl();return false;' class='iBlock'>
-                        <img src='{{ asset('image/143.jpg') }}' style="width: 520px;height: 143px;" />
+                        <img src='{{ asset('image/143.png') }}' style="width: 520px;height: 143px;" />
                     </a>
                     <div class='clearfix'>
                         <a href='javascript:void(0)' onClick='openZoosUrl();return false;' class='iBlock fl'>
-                            <img src='{{ asset('image/2541.jpg') }}' style="width: 254px;height: 143px;" />
+                            <img src='{{ asset('image/254.png') }}' style="width: 254px;height: 143px;" />
                         </a>
                         <a href='javascript:void(0)' onClick='openZoosUrl();return false;' class='iBlock fr'>
-                            <img src='{{ asset('image/2542.jpg') }}' style="width: 254px;height: 143px;" />
+                            <img src='{{ asset('image/254.png') }}' style="width: 254px;height: 143px;" />
                         </a>
                     </div>
                 </div>
