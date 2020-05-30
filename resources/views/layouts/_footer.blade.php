@@ -8,7 +8,7 @@
                 <p>帮助每一位爱美的朋友,安全放心的</p>
             </div>
             <div class='qualCen fl'>
-                <img src='{{ asset('image/162.png') }}' />
+                <img src='{{ asset('image/65a9dd16ee22ed2e74322f6949e3dcc.jpg') }}' />
             </div>
             <div class='qualLinks fl clearfix'>
                 <a href='/lianxi' class='iBlock fl boxIndex'>联系我们</a>
@@ -23,6 +23,6 @@
 </section>
 <section class='footerIndex' id='footerBz'>
     <div class='footerCon wPub'>
-        <p>网站备案号 <br/>温馨提示：43432432423423423423<br/>详情请到医院资讯</p><br/>
+        <p>网站备案号 <a href="http://beian.miit.gov.cn/state/outPortal/loginPortal.action">苏ICP备09087349号-3</a> <br/>温馨提示：43432432423423423423<br/>详情请到医院资讯</p><br/>
     </div>
 </section>
