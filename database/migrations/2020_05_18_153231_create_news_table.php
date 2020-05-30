@@ -22,6 +22,7 @@ class CreateNewsTable extends Migration
             $table->string('status')->comment('新闻发布状态');
             $table->integer('post_count')->comment('新闻阅读数');
             $table->string('avatar')->comment('新闻封面');
+            $table->string('slug')->comment('新闻封面');
             $table->timestamps();
         });
     }

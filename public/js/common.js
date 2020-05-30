@@ -73,7 +73,6 @@ var glmV4 = {
         /*topNavpub*/
         var topnavArr = [];
         var topnewurl = window.location.pathname;
-        console.log(topnewurl);
         $(".topNav a").each(function (i) {
             topnavArr.push($(this).attr("href"));
         })
@@ -202,11 +201,7 @@ var glmV4 = {
 
 $(function () {
     glmV4.init();
-})
-
-
-
-
+});
 
 (function ($) {
 

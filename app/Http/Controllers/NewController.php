@@ -20,14 +20,23 @@ class NewController extends Controller
     // 后台首页
     public function home()
 	{	
-		$data = News::all()->toArray();
+		$data = News::orderBy('id', 'desc')->get()->toArray();
 		// 新闻分类
 		$type = News::newsType();
 		foreach ($data as $key => $vo) {
 			$data[$key]['type_name'] = News::type($vo['cid']);
 		}
 
-		return view('new.news', compact('data', 'type'));
+		$page = request()->page ? : 1;
+		$perPage = 15;
+		$offset = ($page * $perPage) - $perPage;
+		$total = count($data);
+		$paginator = new LengthAwarePaginator(array_slice($data, $offset, $perPage, true), $total, $perPage, null, [
+			'path' => request()->url(),
+			'pageName' => 'page',
+		]);
+
+		return view('new.news', compact('data', 'type', 'total', 'paginator'));
 	}
 
 	// 新闻发布
@@ -86,7 +95,9 @@ class NewController extends Controller
 			$categorys = $categorys->updateOrcreate(['id' => $data['id']], [
     			'name' => $data['name'],
     			'cid' => $data['cid'],
-    			'description' => $data['name'],
+				'description' => $data['name'],
+				'status' => 1,
+				'post_count' => 0,
 			]);
 			
 			if ($categorys) {
@@ -149,6 +160,8 @@ class NewController extends Controller
 		}
 
 		$new = News::where('id', $id)->first()->toArray();
+		$new_type = News::type($new['cid']);
+		$new['new_type'] = $new_type;
 
 		return json_encode($new);
 	}

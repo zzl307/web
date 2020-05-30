@@ -9,7 +9,7 @@ class Category extends Model
     // public $timestamps = false;
 
     protected $fillable = [
-        'name', 'description', 'cid'
+        'name', 'description', 'cid', 'status', 'post_count'
     ];
 
     public static function category()
@@ -17,7 +17,7 @@ class Category extends Model
 		$categorys = array();
 		foreach (Category::all()->toArray() as $u)
 		{	
-			if ($u['cid'] == 1) {
+			if ($u['cid'] == 0) {
 				$category['cid_name'] = '一级分类';
 			} else {
 				$data = Category::where('id', $u['cid'])->first()->toArray();
@@ -37,5 +37,10 @@ class Category extends Model
 		}
 
 		return $categorys;
+	}
+
+	public function get_category_title($id)
+	{
+		return Category::where('id', $id)->first();
 	}
 }

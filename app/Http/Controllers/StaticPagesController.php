@@ -3,27 +3,71 @@
 namespace App\Http\Controllers;
 
 use App\Banners;
+use App\Category;
+use App\News;
 use Illuminate\Http\Request;
 
 class StaticPagesController extends Controller
 {
     // 首页
-    public function index(Banners $banners)
+    public function index(Banners $banners, Category $category)
     {
         $data = Banners::where('status', 1)->get();
+        $category_status = get_category_status();
+        $tree = get_category_tree();
 
-        return view('static_pages/index', compact('data'));
+        // 新闻资讯
+        $news = News::where('cid', 11)->take(8)->get();
+        // 企业文化
+        $company = News::where('cid', 12)->take(8)->get();
+        // 案例展示
+        $list = News::where('cid', 13)->take(8)->get();
+        // 培训技术
+        $training = News::where('cid', 14)->take(8)->get();
+
+        return view('static_pages/index', compact('data', 'category_status', 'tree', 'news', 'company', 'list', 'training'));
     }
 
     // 列表
-    public function news()
-    {
-        return view('static_pages.news');
+    public function news(Category $category, News $news, $id)
+    {   
+        $new_category = Category::where('cid', $id)->get();
+        $new = array();
+        foreach ($new_category as $vo) {
+            $new[] = $vo->id;
+        }
+        
+        $new = News::whereIn('cid', $new)->get();
+
+        $category_status = get_category_status();
+        $tree = get_category_tree();
+        $category_title = $category->get_category_title($id);
+
+        return view('static_pages.news', compact('category_status', 'tree','new_category', 'new', 'category_title'));
     }
 
     // 详情
-    public function details()
-    {
-        return view('static_pages.details');
+    public function details(News $news, $id)
+    {   
+        $data = News::where('id', $id)->first();
+        $previousNewsID = News::where('id', '<', $id)->max('id');
+        $nextNewsId = News::where('id', '>', $id)->min('id');
+        $previousNewsTitle = News::getNewsInfo($previousNewsID);
+        $nextNewsTitle = News::getNewsInfo($nextNewsId);
+
+        // URL 矫正
+        if ( !empty($data->slug) && $data->slug != request()->slug) {
+
+            return redirect($data->link(), 301);
+        }
+
+        $links = $news->getAllCached();
+
+        $new = News::orderBy('id', 'desc')->first();
+
+        $category_status = get_category_status();
+        $tree = get_category_tree();
+
+        return view('static_pages.details', compact('data', 'previousNewsID', 'nextNewsId', 'previousNewsTitle', 'nextNewsTitle', 'links', 'new', 'category_status', 'tree'));
     }
 }
