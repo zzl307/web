@@ -23,6 +23,6 @@
 </section>
 <section class='footerIndex' id='footerBz'>
     <div class='footerCon wPub'>
-        <p>网站备案号 <a href="http://beian.miit.gov.cn/state/outPortal/loginPortal.action">苏ICP备09087349号-3</a> <br/>温馨提示：43432432423423423423<br/>详情请到医院资讯</p><br/>
+        <p>网站备案号 <a href="http://beian.miit.gov.cn/state/outPortal/loginPortal.action">苏ICP备09087349号-3</a> <br/><a href="{{ route('sitemap.index') }}">网站地图</a><br/>详情请到医院资讯</p><br/>
     </div>
 </section>
