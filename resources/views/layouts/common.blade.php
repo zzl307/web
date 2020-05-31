@@ -47,8 +47,8 @@
                 <img style="width: 277px; height: 40px;" src="{{ asset('image') }}/logo2.png" alt="">
                 <div class="topNav fr">
                     <a href="/">首页</a>
-                    <a href="#">企业文化</a>
-                    <a href="#">专家团队</a>
+                    <a href="#" rel="nofollow">企业文化</a>
+                    <a href="#" rel="nofollow">专家团队</a>
                     <a href="#">案例展示</a>
                     <a href="#/">关于我们</a>
                     <a href="#">案例展示</a>
@@ -83,14 +83,14 @@
                         </div>
                         <div class='subMenuPics fr'>
                             <a href='javascript:void(0)' onClick='openZoosUrl();return false;' class='iBlock'>
-                                <img src='{{ asset('image/143.png') }}' />
+                                <img src='{{ asset('image/143.jpg') }}' style="width: 520px;height: 143px;" />
                             </a>
                             <div class='clearfix'>
                                 <a href='javascript:void(0)' onClick='openZoosUrl();return false;' class='iBlock fl'>
-                                    <img src='{{ asset('image/254.png') }}' />
+                                    <img src='{{ asset('image/2541.jpg') }}' style="width: 254px;height: 143px;" />
                                 </a>
                                 <a href='javascript:void(0)' onClick='openZoosUrl();return false;' class='iBlock fr'>
-                                    <img src='{{ asset('image/254.png') }}' />
+                                    <img src='{{ asset('image/2542.jpg') }}' style="width: 254px;height: 143px;" />
                                 </a>
                             </div>
                         </div>

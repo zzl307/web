@@ -150,7 +150,7 @@
             <img src="{{ asset('image') }}/1.jpg" class="before" />
         </a>
         <span class="iBlock fl">
-            <img style="width: 600px;height: 150px;" src="{{ asset('image') }}/600.png" />
+            <img style="width: 600px;height: 150px;" src="{{ asset('image') }}/600.jpg" />
         </span>
         <a href="#"> 
             <img src="{{ asset('image') }}/10.jpg" class="after" />
