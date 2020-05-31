@@ -48,3 +48,5 @@ Route::group(['prefix' => 'system'], function(){
 	Route::any('storeStutas', 'SystemController@storeStutas')->name('banner.storeStutas');
 	Route::any('deleteDanners', 'SystemController@deleteDanners')->name('banner.deleteDanners');
 });
+
+Route::get('sitemap', 'SitemapController@index')->name('sitemap.index');

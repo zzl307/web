@@ -16,7 +16,8 @@
         "laravel/tinker": "^2.0",
         "mews/purifier": "~3.0",
         "nesbot/carbon": "^2.34",
-        "overtrue/pinyin": "~4.0"
+        "overtrue/pinyin": "~4.0",
+        "roumen/sitemap": "6.0.*"
     },
     "require-dev": {
         "facade/ignition": "^1.4",
