@@ -17,6 +17,7 @@
         "mews/purifier": "~3.0",
         "nesbot/carbon": "^2.34",
         "overtrue/pinyin": "~4.0",
+        "renatomarinho/laravel-page-speed": "^1.8",
         "roumen/sitemap": "6.0.*"
     },
     "require-dev": {
