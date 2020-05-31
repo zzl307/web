@@ -50,7 +50,7 @@
                     <a href="#" rel="nofollow">企业文化</a>
                     <a href="#" rel="nofollow">专家团队</a>
                     <a href="#">案例展示</a>
-                    <a href="#/">关于我们</a>
+                    <a href="#">关于我们</a>
                     <a href="#">案例展示</a>
                 </div>
             </div>
