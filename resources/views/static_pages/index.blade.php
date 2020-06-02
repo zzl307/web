@@ -68,28 +68,82 @@
         <div class="zjContent relative">
             <div class="zjlists">
                 <div class="zjlist relative">
-                    <img src="{{ asset('image') }}/1200.png" alt="" />
+                    <img src="{{ asset('image') }}/1200X560.jpg" alt="" />
                     <div class="zjTxt absolute">
                         <h3>院长</h3>
                         <div class="zjzc">
-                            姓名
+                            王桂龙
                         </div>
                         <div class="zjbm">
-                            <h5>描述</h5>
+                            <h5>南京安安整形院长、创始人</h5>
+                            <h5>王氏6D双眼皮技术创始人</h5>
+                            <h5>无痕祛眼袋国家专利技术发明人</h5>
+                            <h5>美国射极峰鼻整形研究院副院长</h5>
+                            <h5>《中国美容整形外科杂志》、《中国外科年鉴》常务编委</h5>
+                            <h5>中国人保江苏省唯一认证承保的整形医师</h5>
+                            <h5>中华医学整形协会首批整形医师</h5>
+                            <h5>亚太区无痛微创整形技术的先驱者</h5>
+                            <h5>人民网《名医大讲堂》特邀嘉宾</h5>
                         </div>
                         <a href="#" class="iBlock boxIndex">点击详情</a>
                     </div>
                 </div>
 
                 <div class="zjlist relative">
-                    <img src="{{ asset('image') }}/1200.png" alt="" />
+                    <img src="{{ asset('image') }}/1200X560-3.jpg" alt="" />
                     <div class="zjTxt absolute">
-                        <h3>副院长</h3>
+                        <h3>主任医师</h3>
                         <div class="zjzc">
-                            姓名
+                            陈云康
                         </div>
                         <div class="zjbm">
-                            <h5>描述</h5>
+                            <h5>意大利悦升线中国技术培训讲师</h5>
+                            <h5>不开刀光波除皱发明人</h5>
+                            <h5>中国中西医结合学会医学美容专业委员鼻整形组成员</h5>
+                            <h5>中国整形美容协会乳房整形分会委员</h5>
+                            <h5>三分钟隆鼻术技术联合发明人</h5>
+                            <h5>中华医学会整形外科学分会委员</h5>
+                            <h5>中国医师协会美容与整形外科学会全国委员</h5>
+                            <h5>整形是医术，更是艺术</h5>
+                        </div>
+                        <a href="#" class="iBlock boxIndex">点击详情</a>
+                    </div>
+                </div>
+
+                <div class="zjlist relative">
+                    <img src="{{ asset('image') }}/1200X560-2.jpg" alt="" />
+                    <div class="zjTxt absolute">
+                        <h3>主任医师</h3>
+                        <div class="zjzc">
+                            颜舒
+                        </div>
+                        <div class="zjbm">
+                            <h5>眼部抗衰技术医美协会分会委员</h5>
+                            <h5>显微外科精细缝合技术倡导者</h5>
+                            <h5>中国整形美容协会眼部整形分会委员</h5>
+                            <h5>中国中西医结合学会医学美容专业委员抗衰老医师委员会委员</h5>
+                            <h5>亚洲整形美容研究院常务会员</h5>
+                            <h5>韩国U-Bak整形集团受邀学者</h5>
+                            <h5>中国整形美容协会会员</h5>
+                        </div>
+                        <a href="#" class="iBlock boxIndex">点击详情</a>
+                    </div>
+                </div>
+    
+                <div class="zjlist relative">
+                    <img src="{{ asset('image') }}/1200X560-4.jpg" alt="" />
+                    <div class="zjTxt absolute">
+                        <h3>主任医师</h3>
+                        <div class="zjzc">
+                            谢闯
+                        </div>
+                        <div class="zjbm">
+                            <h5>形体综合雕塑及脂肪移植医美研究所成员</h5>
+                            <h5>中国整形美容协会面部、脂肪专业学组全国委员</h5>
+                            <h5>中国中西医结合学会医学美容专业委员会鼻分部常务委员</h5>
+                            <h5>国际医学美容学会核心成员 </h5>
+                            <h5>中国整形协会理事会员</h5>
+                            <h5>中华医学会整形外科学分会委员</h5>
                         </div>
                         <a href="#" class="iBlock boxIndex">点击详情</a>
                     </div>
@@ -98,10 +152,22 @@
 
             <div class="zjhd absolute">
                 <div class="zjtabBd">
-                    <li class="zjcicle relative"> <img style="width: 108px;height: 108px;" src="{{ asset('image') }}/150.png" /> <em
-                            class="iBlock fourIcon absolute"></em> </li>
-                    <li class="zjcicle relative"> <img style="width: 108px;height: 108px;" src="{{ asset('image') }}/150.png" /> <em
-                            class="iBlock fourIcon absolute"></em> </li>
+                    <li class="zjcicle relative">
+                        <img style="width: 108px;height: 108px;" src="{{ asset('image') }}/31.jpg" />
+                        <em class="iBlock fourIcon absolute"></em>
+                    </li>
+                    <li class="zjcicle relative">
+                        <img style="width: 108px;height: 108px;" src="{{ asset('image') }}/511.jpg" />
+                        <em class="iBlock fourIcon absolute"></em>
+                    </li>
+                    <li class="zjcicle relative">
+                        <img style="width: 108px;height: 108px;" src="{{ asset('image') }}/41.jpg" />
+                        <em class="iBlock fourIcon absolute"></em>
+                    </li>
+                    <li class="zjcicle relative">
+                        <img style="width: 108px;height: 108px;" src="{{ asset('image') }}/51.jpg" />
+                        <em class="iBlock fourIcon absolute"></em>
+                    </li>
                 </div>
             </div>
         </div>

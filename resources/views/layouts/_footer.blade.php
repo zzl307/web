@@ -11,12 +11,7 @@
                 <img src='{{ asset('image/65a9dd16ee22ed2e74322f6949e3dcc.jpg') }}' />
             </div>
             <div class='qualLinks fl clearfix'>
-                <a href='/lianxi' class='iBlock fl boxIndex'>联系我们</a>
-                <a href='/zt/docter' class='iBlock fr boxIndex'>联系我们</a>
-                <a href='' class='iBlock fl boxIndex'>联系我们</a>
-                <a href='/swt/' class='iBlock fr boxIndex'>联系我们</a>
-                <a href='/swt/' class='iBlock fl boxIndex'>联系我们</a>
-                <a href='/pinpai/baozhang' class='iBlock fr boxIndex'>联系我们</a>
+                <a href='#' class='iBlock fl boxIndex'>联系我们</a>
             </div>	
         </div>
     </div>
