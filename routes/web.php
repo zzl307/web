@@ -50,3 +50,4 @@ Route::group(['prefix' => 'system'], function(){
 });
 
 Route::get('sitemap', 'SitemapController@index')->name('sitemap.index');
+Route::get('sitemap.xml', 'SitemapController@index')->name('sitemap.index');
