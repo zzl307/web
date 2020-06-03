@@ -397,14 +397,17 @@ img {
     border-top-right-radius: 5px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
-    background: #6a9bd3;
-    box-shadow: 0px 5px 30px 0px rgba(129, 5, 7, 0.6);
+    /* background: #6a9bd3; */
+    background-image: url(/image/nav.png);
+    background-repeat-x: repeat;
+    background-size: 100%;
+    /* box-shadow: 0px 5px 30px 0px rgba(129, 5, 7, 0.6);
     -webkit-box-shadow: 0px 5px 30px 0px rgba(129, 5, 7, 0.6);
     -moz-box-shadow: 0px 5px 30px 0px rgba(129, 5, 7, 0.6);
     overflow: hidden;
     transition: background 0.3s linear 0s;
     -webkit-transition: background 0.3s linear 0s;
-    -moz-transition: background 0.3s linear 0s;
+    -moz-transition: background 0.3s linear 0s; */
 }
 
 .navlist.navBg {
