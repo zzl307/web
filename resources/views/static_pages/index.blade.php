@@ -9,52 +9,52 @@
             <div class="itemlist boxIndex">
                 <a href="#" target="_blank" class="iBlock relative">
                     <figure class="relative">
-                        <img src="" alt="" />
+                        <img style="width: 174px;height: 174px;" src="{{ asset('image') }}/0ce58b722a890b181cc54eac32776c3.jpg" alt="王氏6D双眼皮" />
                     </figure>
                     <em class="iBlock absolute fourIcon Hot"></em>
-                    <p style="text-align: center;font-size: 14px;">美白嫩肤</p>
+                    <p style="text-align: center;font-size: 14px;">王氏6D双眼皮</p>
                 </a>
             </div>
             <div class="itemlist boxIndex">
                 <a href="#" target="_blank" class="iBlock relative">
                     <figure class="relative">
-                        <img src="" alt="" />
+                        <img style="width: 174px;height: 174px;" src="{{ asset('image') }}/3c10fb7628a5fb3e76bbc4b6808763d.jpg" alt="白体脂肪隆胸" />
                     </figure>
                     <em class="iBlock absolute fourIcon Hot"></em>
-                    <p style="text-align: center;font-size: 14px;">美白嫩肤</p>
+                    <p style="text-align: center;font-size: 14px;">白体脂肪隆胸</p>
                 </a>
             </div>
             <div class="itemlist boxIndex">
                 <a href="#" target="_blank" class="iBlock relative">
                     <figure class="relative">
-                        <img src="" alt="" />
+                        <img style="width: 174px;height: 174px;" src="{{ asset('image') }}/174x174.jpg" alt="专业祛眼袋" />
                     </figure>
                     <em class="iBlock absolute fourIcon Hot"></em>
-                    <p style="text-align: center;font-size: 14px;">美白嫩肤</p>
+                    <p style="text-align: center;font-size: 14px;">专业祛眼袋</p>
                 </a>
             </div>
             <div class="itemlist boxIndex">
                 <a href="#" target="_blank" class="iBlock relative">
                     <figure class="relative">
-                        <img src="" alt="" />
+                        <img style="width: 174px;height: 174px;" src="{{ asset('image') }}/190d4c2d010b455b94dccd6eacc5754.jpg" alt="3D童颜提升术" />
                     </figure>
-                    <p style="text-align: center;font-size: 14px;">美白嫩肤</p>
+                    <p style="text-align: center;font-size: 14px;">3D童颜提升术</p>
                 </a>
             </div>
             <div class="itemlist boxIndex">
                 <a href="#" target="_blank" class="iBlock relative">
                     <figure class="relative">
-                        <img src="" alt="" />
+                        <img style="width: 174px;height: 174px;" src="{{ asset('image') }}/a99b4a7b9cc6ae709ebd67867805904.jpg" alt="SVF童颜脂雕" />
                     </figure>
-                    <p style="text-align: center;font-size: 14px;">美白嫩肤</p>
+                    <p style="text-align: center;font-size: 14px;">SVF童颜脂雕</p>
                 </a>
             </div>
             <div class="itemlist boxIndex">
                 <a href="#" target="_blank" class="iBlock relative">
                     <figure class="relative">
-                        <img src="" alt="" />
+                        <img style="width: 174px;height: 174px;" src="{{ asset('image') }}/b20b8a8ac48b4ce99f5b83dbc554a2f.jpg" alt="微笑M唇" />
                     </figure>
-                    <p style="text-align: center;font-size: 14px;">美白嫩肤</p>
+                    <p style="text-align: center;font-size: 14px;">微笑M唇</p>
                 </a>
             </div>
         </div>
