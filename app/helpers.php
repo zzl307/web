@@ -16,7 +16,7 @@
 
     function get_category_tree()
     {
-        $category = collect(Category::take(10)->get())->toArray();
+        $category = collect(Category::get())->toArray();
 
         $tree = array();
         foreach($category as $category_data){
