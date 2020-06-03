@@ -11,12 +11,12 @@
 
     function get_category_status()
     {
-        return Category::where('cid', 0)->get();
+        return Category::where('cid', 0)->take(10)->get();
     }
 
     function get_category_tree()
     {
-        $category = collect(Category::all())->toArray();
+        $category = collect(Category::take(10)->get())->toArray();
 
         $tree = array();
         foreach($category as $category_data){
