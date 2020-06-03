@@ -41,7 +41,7 @@
 	<section class="headerAll" id="headerAll">
         <section class="bannerBz">
             <div class="bannerPic relative">
-                <img src="{{ asset('image') }}/534.jpg" alt="" />
+                <img src="{{ asset('image') }}/534.png" alt="" />
             </div>
             <div class="topIdex absolute">
                 <img style="width: 277px; height: 40px;" src="{{ asset('image') }}/logo2.png" alt="">
