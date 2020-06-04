@@ -29,8 +29,8 @@
 					网站Banner
 				</a>
 			</li>
-			<li class="{{Request::segment(2) == 'seo' ? 'current' : ''}}">
-				<a href="{{ url('system/system') }}">
+			<li class="{{Request::segment(2) == 'keyword' ? 'current' : ''}}">
+				<a href="{{ url('system/keyword') }}">
 					<i class="icon-caret-right">
 					</i>
 					网站优化

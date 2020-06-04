@@ -67,4 +67,10 @@ class SystemController extends Controller
             return 1;
         }
     }
+
+    // 网站优化
+    public function system()
+    {
+        return view('system.system');
+    }
 }
