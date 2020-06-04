@@ -874,9 +874,9 @@ img {
 }
 
 .bannerPic img {
-    width: 1920px !important;
+    width: 100%;
+    height: 534px;
     position: absolute;
-    left: 50%;
+    left: 0;
     top: 0;
-    margin-left: -960px;
 }
