@@ -177,86 +177,86 @@
     <section class="truealBoxs wPub">
         <a href="#"> 
             <img src="{{ asset('image') }}/1.jpg" class="after" />
-            <img src="{{ asset('image') }}/24.jpg" class="before" />
-        </a>
-        <a href="#"> 
-            <img src="{{ asset('image') }}/2.jpg" class="after" />
-            <img src="{{ asset('image') }}/23.jpg" class="before" />
-        </a>
-        <a href="#"> 
-            <img src="{{ asset('image') }}/3.jpg" class="after" />
-            <img src="{{ asset('image') }}/22.jpg" class="before" />
-        </a>
-        <a href="#"> 
-            <img src="{{ asset('image') }}/4.jpg" class="after" />
-            <img src="{{ asset('image') }}/21.jpg" class="before" />
-        </a>
-        <a href="#"> 
-            <img src="{{ asset('image') }}/5.jpg" class="after" />
             <img src="{{ asset('image') }}/20.jpg" class="before" />
         </a>
         <a href="#"> 
-            <img src="{{ asset('image') }}/6.jpg" class="after" />
+            <img src="{{ asset('image') }}/2.jpg" class="after" />
             <img src="{{ asset('image') }}/19.jpg" class="before" />
         </a>
         <a href="#"> 
-            <img src="{{ asset('image') }}/7.jpg" class="after" />
+            <img src="{{ asset('image') }}/3.jpg" class="after" />
             <img src="{{ asset('image') }}/18.jpg" class="before" />
         </a>
         <a href="#"> 
-            <img src="{{ asset('image') }}/8.jpg" class="after" />
+            <img src="{{ asset('image') }}/4.jpg" class="after" />
             <img src="{{ asset('image') }}/17.jpg" class="before" />
         </a>
         <a href="#"> 
-            <img src="{{ asset('image') }}/9.jpg" class="after" />
+            <img src="{{ asset('image') }}/5.jpg" class="after" />
             <img src="{{ asset('image') }}/16.jpg" class="before" />
         </a>
         <a href="#"> 
-            <img src="{{ asset('image') }}/24.jpg" class="after" />
-            <img src="{{ asset('image') }}/1.jpg" class="before" />
+            <img src="{{ asset('image') }}/6.jpg" class="after" />
+            <img src="{{ asset('image') }}/15.jpg" class="before" />
+        </a>
+        <a href="#"> 
+            <img src="{{ asset('image') }}/7.jpg" class="after" />
+            <img src="{{ asset('image') }}/14.jpg" class="before" />
+        </a>
+        <a href="#"> 
+            <img src="{{ asset('image') }}/8.jpg" class="after" />
+            <img src="{{ asset('image') }}/13.jpg" class="before" />
+        </a>
+        <a href="#"> 
+            <img src="{{ asset('image') }}/9.jpg" class="after" />
+            <img src="{{ asset('image') }}/12.jpg" class="before" />
+        </a>
+        <a href="#"> 
+            <img src="{{ asset('image') }}/10.jpg" class="after" />
+            <img src="{{ asset('image') }}/11.jpg" class="before" />
         </a>
         <span class="iBlock fl">
             <img style="width: 600px;height: 150px;" src="{{ asset('image') }}/600.jpg" />
         </span>
         <a href="#"> 
-            <img src="{{ asset('image') }}/10.jpg" class="after" />
-            <img src="{{ asset('image') }}/15.jpg" class="before" />
-        </a>
-        <a href="#"> 
             <img src="{{ asset('image') }}/11.jpg" class="after" />
-            <img src="{{ asset('image') }}/14.jpg" class="before" />
-        </a>
-        <a href="#"> 
-            <img src="{{ asset('image') }}/12.jpg" class="after" />
-            <img src="{{ asset('image') }}/13.jpg" class="before" />
-        </a>
-        <a href="#"> 
-            <img src="{{ asset('image') }}/13.jpg" class="after" />
-            <img src="{{ asset('image') }}/12.jpg" class="before" />
-        </a>
-        <a href="#"> 
-            <img src="{{ asset('image') }}/14.jpg" class="after" />
-            <img src="{{ asset('image') }}/11.jpg" class="before" />
-        </a>
-        <a href="#"> 
-            <img src="{{ asset('image') }}/15.jpg" class="after" />
             <img src="{{ asset('image') }}/10.jpg" class="before" />
         </a>
         <a href="#"> 
-            <img src="{{ asset('image') }}/16.jpg" class="after" />
+            <img src="{{ asset('image') }}/12.jpg" class="after" />
             <img src="{{ asset('image') }}/9.jpg" class="before" />
         </a>
         <a href="#"> 
-            <img src="{{ asset('image') }}/17.jpg" class="after" />
+            <img src="{{ asset('image') }}/13.jpg" class="after" />
             <img src="{{ asset('image') }}/8.jpg" class="before" />
         </a>
         <a href="#"> 
-            <img src="{{ asset('image') }}/18.jpg" class="after" />
+            <img src="{{ asset('image') }}/14.jpg" class="after" />
             <img src="{{ asset('image') }}/7.jpg" class="before" />
         </a>
         <a href="#"> 
-            <img src="{{ asset('image') }}/19.jpg" class="after" />
+            <img src="{{ asset('image') }}/15.jpg" class="after" />
             <img src="{{ asset('image') }}/6.jpg" class="before" />
+        </a>
+        <a href="#"> 
+            <img src="{{ asset('image') }}/16.jpg" class="after" />
+            <img src="{{ asset('image') }}/5.jpg" class="before" />
+        </a>
+        <a href="#"> 
+            <img src="{{ asset('image') }}/17.jpg" class="after" />
+            <img src="{{ asset('image') }}/4.jpg" class="before" />
+        </a>
+        <a href="#"> 
+            <img src="{{ asset('image') }}/18.jpg" class="after" />
+            <img src="{{ asset('image') }}/3.jpg" class="before" />
+        </a>
+        <a href="#"> 
+            <img src="{{ asset('image') }}/19.jpg" class="after" />
+            <img src="{{ asset('image') }}/2.jpg" class="before" />
+        </a>
+        <a href="#"> 
+            <img src="{{ asset('image') }}/20.jpg" class="after" />
+            <img src="{{ asset('image') }}/1.jpg" class="before" />
         </a>
         <a href="#"> 
             <img src="{{ asset('image') }}/20.jpg" class="after" />
