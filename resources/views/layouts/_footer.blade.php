@@ -8,7 +8,7 @@
                 <p>为万千求美者提供安全、安心的美丽体验</p>
             </div>
             <div class='qualCen fl'>
-                <img style="width: 162px;height: 162px;" src='{{ asset('image/65a9dd16ee22ed2e74322f6949e3dcc.jpg') }}' />
+                <img style="width: 162px;height: 162px;" src='{{ asset('image/65a9dd16ee22ed2e74322f6949e3dcc.jpg') }}' alt="安安美容整形">
             </div>
             <div class='qualLinks fl clearfix'>
                 <a href='#' class='iBlock fl boxIndex'>联系我们</a>
