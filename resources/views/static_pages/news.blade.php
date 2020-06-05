@@ -3,8 +3,15 @@
 @section('style')
     <style>
         #mapContainer {
-            width: 296px;
+            width: 288px;
             height: 300px;
+        }
+
+        .list_scon h4 {
+            background-image: url(/image/nav.png);
+            background-repeat: repeat;
+            background-size: 100%;
+            width: 260px;
         }
     </style>
 @endsection
@@ -17,7 +24,7 @@
         </div>
         <ul class="list_name">
             @foreach ($new_category as $vo)
-                <li style="border-radius: 5px;">
+                <li>
                     <a href="{{ route('news.list', ['id' => $vo->id]) }}" title="{{ $vo->name }}">{{ $vo->name }}</a><em>></em>
                 </li>
             @endforeach
@@ -40,16 +47,11 @@
                         <h4 style="border-radius: 5px;">
                             <a href="{{ route('details', ['id' => $vo->id, 'slug' => $vo->slug]) }}" class="info" title="{{ $vo->title }}">{{ $vo->title }}</a>
                         </h4>
-                        <div class="ls_con" style="margin-top: 12px;">
+                        <div class="ls_con" style="margin-top: 4px;">
                             <img style="border-radius: 5px;" style="width: 260px;height: 260px;" src="{{ $vo->avatar }}" alt="{{ $vo->keyword }}">
                             <div class="ls_hover">
                                 <a href="{{ route('details', ['id' => $vo->id, 'slug' => $vo->slug]) }}" class="info" title="{{ $vo->title }}"></a>
                             </div>
-                        </div>
-                        <div class="yongtu">
-                            <p>
-                                {{ make_excerpt($vo->description) }}
-                            </p>
                         </div>
                     </li>
                 @endforeach
@@ -62,7 +64,7 @@
 @section('javascript')
     <script src="https://webapi.amap.com/maps?v=1.4.15&key=4e5555120b4d8108ced47cc0bcb81b91"></script>
     <script type="text/javascript" >
-        var map = new AMap.Map('mapContainer',{
+        var map = new AMap.Map('mapContainer' ,{
             zoom: 18,
             center: [118.783414,32.0252]
         });

@@ -399,7 +399,7 @@ img {
     border-bottom-right-radius: 5px;
     /* background: #6a9bd3; */
     background-image: url(/image/nav.png);
-    background-repeat-x: repeat;
+    background-repeat: repeat;
     background-size: 100%;
     /* box-shadow: 0px 5px 30px 0px rgba(129, 5, 7, 0.6);
     -webkit-box-shadow: 0px 5px 30px 0px rgba(129, 5, 7, 0.6);

@@ -43,17 +43,17 @@ li {
 
 .list_left .list_tit {
     width: 289px;
-    height: 149px;
-    background: #6a9bd3;
-    padding: 12px 0;
+    background-image: url(/image/nav.png);
+    background-repeat: repeat;
+    background-size: 100%;
+    padding: 31px 0;
     overflow: hidden;
 }
 
 .list_left .list_tit .bt {
-    margin-top: 45px;
-    font-size: 30px;
+    font-size: 24px;
     text-align: center;
-    color: #fff
+    color: #fff;
 }
 
 .list_left .list_name {
@@ -62,12 +62,12 @@ li {
 }
 
 .list_left .list_name li {
-    padding-left: 54px;
+    padding-left: 35px;
     width: 288px;
     line-height: 55px;
-    font-size: 16px;
-    border: 1px solid #D5D5D5;
-    background: #fff;
+    font-size: 14px;
+    border: none;
+    border-top: 1px solid hsla(0,0%,57%,.15);
 }
 
 .list_left .list_name li a {
@@ -265,9 +265,7 @@ li {
 
 .list_scon li {
     width: 280px;
-    height: 403px;
     padding: 9px;
-    border: 1px solid #E1E1E1;
     background: #fff;
     float: left;
     display: inline;
@@ -276,19 +274,21 @@ li {
 
 .list_scon .ls_con {
     width: 260px;
-    height: 260px;
+    height: 250px;
     position: relative;
     overflow: hidden;
 }
 
 .list_scon .ls_con img {
-    width: 260px;
-    height: 260px;
+    width: 256px;
+    height: 250px;
+    margin-left: 2px;
+    border: 1px solid #E1E1E1;
 }
 
 .list_scon .ls_hover {
     width: 260px;
-    height: 260px;
+    height: 250px;
     position: absolute;
     top: 0;
     left: 0;
@@ -301,8 +301,8 @@ li {
 .list_scon .ls_hover a.info {
     background: url(../images/list/hover.png) no-repeat scroll center center transparent;
     display: inline-block;
-    width: 260px;
-    height: 260px;
+    width: 256px;
+    height: 250px;
     opacity: 0;
     transition: opacity 0.5s ease-in-out 0s;
     position: relative;
@@ -325,7 +325,7 @@ li {
     text-align: left;
     height: 40px;
     line-height: 40px;
-    font-size: 19px;
+    font-size: 16px;
     color: #fff;
     font-weight: normal
 }

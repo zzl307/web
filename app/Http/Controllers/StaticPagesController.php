@@ -32,13 +32,11 @@ class StaticPagesController extends Controller
     public function news(Category $category, News $news, $id)
     {   
         $new_category = Category::where('cid', $id)->get();
-        $new = array();
-        foreach ($new_category as $vo) {
-            $new[] = $vo->id;
+        if (blank($new_category)) {
+            $cid = Category::where('id', $id)->first();
+            $new_category = Category::where('cid', $cid->cid)->get();
         }
-        
-        $new = News::whereIn('cid', $new)->get();
-
+        $new = News::where('cid', $id)->get();
         $category_status = get_category_status();
         $tree = get_category_tree();
         $category_title = $category->get_category_title($id);
