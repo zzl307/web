@@ -38,7 +38,7 @@
 
     <div class="list_right">
         <a href="#">
-            <img style="border-radius: 5px;" src="{{ asset('image') }}/878.png" class="lson_banner">
+            <img style="border-radius: 5px;" src="{{ asset('image') }}/878.jpg" class="lson_banner">
         </a>
         <div class="list_scon">
             <ul>
