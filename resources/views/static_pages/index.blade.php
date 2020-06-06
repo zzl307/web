@@ -153,19 +153,19 @@
             <div class="zjhd absolute">
                 <div class="zjtabBd">
                     <li class="zjcicle relative">
-                        <img style="width: 108px;height: 108px;" src="{{ asset('image') }}/31.jpg" alt="安安医疗美容"/>
+                        <img style="width: 108px;height: 108px;" src="{{ asset('image') }}/31.jpg" alt="南京安安医疗"/>
                         <em class="iBlock fourIcon absolute"></em>
                     </li>
                     <li class="zjcicle relative">
-                        <img style="width: 108px;height: 108px;" src="{{ asset('image') }}/511.jpg" alt="美容安安医疗"/>
+                        <img style="width: 108px;height: 108px;" src="{{ asset('image') }}/511.jpg" alt="安安医疗美容"/>
                         <em class="iBlock fourIcon absolute"></em>
                     </li>
                     <li class="zjcicle relative">
-                        <img style="width: 108px;height: 108px;" src="{{ asset('image') }}/41.jpg" alt="美容医疗安安"/>
+                        <img style="width: 108px;height: 108px;" src="{{ asset('image') }}/41.jpg" alt="医疗安安"/>
                         <em class="iBlock fourIcon absolute"></em>
                     </li>
                     <li class="zjcicle relative">
-                        <img style="width: 108px;height: 108px;" src="{{ asset('image') }}/51.jpg" alt="南京安安医疗美容"/>
+                        <img style="width: 108px;height: 108px;" src="{{ asset('image') }}/51.jpg" alt="南京安安医疗"/>
                         <em class="iBlock fourIcon absolute"></em>
                     </li>
                 </div>
