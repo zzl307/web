@@ -9,7 +9,7 @@ class Category extends Model
     // public $timestamps = false;
 
     protected $fillable = [
-        'name', 'description', 'cid', 'status', 'post_count'
+        'title', 'keyword', 'description', 'cid', 'status', 'post_count'
     ];
 
     public static function category()
@@ -21,11 +21,12 @@ class Category extends Model
 				$category['cid_name'] = '一级分类';
 			} else {
 				$data = Category::where('id', $u['cid'])->first()->toArray();
-				$category['cid_name'] = $data['name'];
+				$category['cid_name'] = $data['title'];
 			}
 
 			$category['id'] = $u['id'];
-			$category['name'] = $u['name'];
+			$category['title'] = $u['title'];
+			$category['keyword'] = $u['keyword'];
 			$category['description'] = $u['description'];
 			$category['cid'] = $u['cid'];
 			$category['status'] = $u['status'];

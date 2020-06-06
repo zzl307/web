@@ -23,7 +23,7 @@
                 <span> 文章来源:</span><a href="#" style="color: #6a9bd3;font-size: 15px"> 安安美容整形</a>
             </div>
             <div class="content">
-                {!! $data->description !!}
+                {!! $data->content !!}
             </div>
             <div class="zx_ol" style="width:406px; margin:0 auto;"> <img src="" border="0" usemap="#Map2" />
                 <map name="Map2" id="Map2">

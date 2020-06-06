@@ -35,7 +35,7 @@
             <div class='subNav subNav0{{ $key+1 }}'>
                 <a href='{{ route('news.list', ['id' => $vo->id]) }}' target='_blank' class='iBlock'>
                     <em class='iBlock fourIcon translateX'></em>
-                    <span>{{ $vo->name }}</span>
+                    <span>{{ $vo->title }}</span>
                 </a>
             </div>
         @endforeach
@@ -44,12 +44,12 @@
         @foreach ($tree as $vo)
             <div class='subMenu clearfix' style='height:350px;'>
                 <div class='subMenuTxts fl'>
-                    <div class='menuLogo menuLogo1'>{{ $vo['name'] }} <em class='iBlock fourIcon'></em></div>
+                    <div class='menuLogo menuLogo1'>{{ $vo['title'] }} <em class='iBlock fourIcon'></em></div>
                     <div class='subMenuTxt'>
                         <ul>
                             @foreach ($vo['children'] as $v)
                                 <li>
-                                    <a href='{{ route('news.list', ['id' => $v['id']]) }}' target='_blank' class='iBlock'>{{ $v['name'] }}<i class='iBlock fourIcon hot'></i></a>
+                                    <a href='{{ route('news.list', ['id' => $v['id']]) }}' target='_blank' class='iBlock'>{{ $v['title'] }}<i class='iBlock fourIcon hot'></i></a>
                                 </li>
                             @endforeach
                         </ul>

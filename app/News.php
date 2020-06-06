@@ -13,7 +13,7 @@ class News extends Model
     // public $timestamps = false;
 
     protected $fillable = [
-        'title', 'keyword', 'description', 'status', 'post_count', 'post_count', 'cid', 'avatar','slug'
+        'title', 'keyword', 'description','content', 'status', 'post_count', 'post_count', 'cid', 'avatar','slug'
     ];
 
     // 新闻分类
@@ -28,7 +28,7 @@ class News extends Model
     public static function type($cid)
     {   
         $type_name = Category::where('id', $cid)->first()->toArray();
-        $typeName = $type_name['name'];
+        $typeName = $type_name['title'];
 
         return $typeName;
     }

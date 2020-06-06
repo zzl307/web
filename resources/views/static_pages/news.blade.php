@@ -1,4 +1,4 @@
-@extends('layouts.common')
+@extends('layouts._new')
 
 @section('style')
     <style>
@@ -20,12 +20,12 @@
 <div id="list">
     <div class="list_left">
         <div class="list_tit" style="border-radius: 5px;">
-            <div class="bt">{{ $category_title->name }}</div>
+            <div class="bt">{{ $category_title->title }}</div>
         </div>
         <ul class="list_name">
             @foreach ($new_category as $vo)
                 <li>
-                    <a href="{{ route('news.list', ['id' => $vo->id]) }}" title="{{ $vo->name }}">{{ $vo->name }}</a><em>></em>
+                    <a href="{{ route('news.list', ['id' => $vo->id]) }}" title="{{ $vo->title }}">{{ $vo->title }}</a><em>></em>
                 </li>
             @endforeach
         </ul>

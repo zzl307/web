@@ -79,10 +79,16 @@
                                 <th id="td_delete_sites">
                                     分类ID
                                 </th>
-                                <th class="col-md-2">
+                                <th>
                                     分类名称
+								</th>
+								<th class="col-md-3">
+                                    分类关键词
+								</th>
+								<th class="col-md-3">
+                                    分类描述
                                 </th>
-                                <th id="th_auth_type" class="col-md-2">
+                                <th id="th_auth_type">
                                     所属分类
 								</th>
 								<th>
@@ -108,9 +114,15 @@
                                     <td>
                                         {{ $vo['id'] }}
                                     </td>
-                                    <td>
-                                        {{ $vo['name'] }}
-                                    </td>
+									<td>
+                                        {{ $vo['title'] }}
+									</td>
+									<td>
+                                        {{ $vo['keyword'] }}
+									</td>
+									<td>
+                                        {{ $vo['description'] }}
+									</td>
                                     <td>
                                         <span class="label label-info">
 											{{ $vo['cid_name'] }}
@@ -129,7 +141,6 @@
                                         {{ $vo['updated_at'] }}
 									</td>
 									<td>
-										{{-- <a href="" class="btn btn-xs bs-tooltip" title="详情"><i class="icon-eye-open"></i></a> --}}
 										<a href="" class="btn btn-xs bs-tooltip" title="修改">
 											<i class="icon-edit">
 											</i>
@@ -186,8 +197,28 @@
 										分类名称
 									</td>
 									<td>
-										<div class="col-md-6">
-											<input class="form-control" name="name" value="" type="text" placeholder="分类名称" required>
+										<div class="col-md-12">
+											<input class="form-control" name="title" value="" type="text" placeholder="分类名称" required>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										分类关键词
+									</td>
+									<td>
+										<div class="col-md-12">
+											<input class="form-control" name="keyword" value="" type="text" placeholder="分类名称" required>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										分类描述
+									</td>
+									<td>
+										<div class="col-md-12">
+											<textarea rows="3" cols="5" name="description" id="description" class="limited form-control" data-limit="200" required></textarea>
 										</div>
 									</td>
 								</tr>
@@ -196,11 +227,11 @@
 										所属分类
 									</td>
 									<td>
-										<div class="col-md-6">
+										<div class="col-md-12">
 											<select class="select2-select-00 col-md-12 full-width-fix" name="cid" required>
 												<option value="0" selected>一级分类</option>
 												@foreach ($data as $vo)
-													<option value="{{ $vo['id'] }}" {{ isset($vo) && $vo['id'] == 1 ? 'selected' : '' }}>{{ $vo['name'] }}</option>
+													<option value="{{ $vo['id'] }}" {{ isset($vo) && $vo['id'] == 1 ? 'selected' : '' }}>{{ $vo['title'] }}</option>
 												@endforeach
 											</select>
 										</div>

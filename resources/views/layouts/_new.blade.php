@@ -9,9 +9,9 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <meta name="keywords" content="{{ $data->keyword }}">
-	<meta name="description" content="{{ $data->description }}">
-    <title>@yield('title', '安安医疗美容') - {{ $data->title }}</title>
+    <meta name="keywords" content="{{ $category_title->keyword }}">
+	<meta name="description" content="{{ $category_title->description }}">
+    <title>@yield('title', '安安医疗美容') - {{ $category_title->title }}</title>
     
     {{-- Styles --}}
     <link href="{{ asset('css/common.css') }}" rel="stylesheet">

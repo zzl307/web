@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Banners;
 use App\Category;
 use App\News;
+use App\System;
 use Illuminate\Http\Request;
 
 class StaticPagesController extends Controller
@@ -25,7 +26,10 @@ class StaticPagesController extends Controller
         // 培训技术
         $training = News::where('cid', 14)->take(8)->get();
 
-        return view('static_pages/index', compact('data', 'category_status', 'tree', 'news', 'company', 'list', 'training'));
+        // 网站优化
+        $system = System::first();
+
+        return view('static_pages/index', compact('data', 'category_status', 'tree', 'news', 'company', 'list', 'training', 'system'));
     }
 
     // 列表

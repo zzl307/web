@@ -104,7 +104,10 @@
                                 </th>
                                 <th id="th_auth_type" class="col-md-2">
                                     关键词
-                                </th>
+								</th>
+								<th class="col-md-2">
+									描述
+								</th>
                                 <th>
                                     所属分类
                                 </th>
@@ -136,7 +139,10 @@
                                     </td>
                                     <td>
 										{{ $vo['keyword'] }}
-                                    </td>
+									</td>
+									<td>
+										{{ $vo['description'] }}
+									</td>
                                     <td>
                                         <span class="label label-info">
 											{{ $vo['type_name'] }}
@@ -232,13 +238,23 @@
 								</tr>
 								<tr>
 									<td>
+										新闻描述
+									</td>
+									<td>
+										<div class="col-md-6">
+											<textarea rows="8" cols="5" name="description" id="description" class="limited form-control" data-limit="200" required></textarea>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
 										新闻分类
 									</td>
 									<td>
 										<div class="col-md-6">
 											<select class="select2-select-00 col-md-12 full-width-fix" name="cid" id="cid" required>
 												@foreach ($type as $vo)
-													<option value="{{ $vo['id'] }}">{{ $vo['name'] }}</option>
+													<option value="{{ $vo['id'] }}">{{ $vo['title'] }}</option>
 												@endforeach
 											</select>
 										</div>
@@ -250,7 +266,7 @@
 									</td>
 									<td class="col-md-12">
 										<div class="col-md-12">
-											<textarea rows="15" cols="5" id="editor" name="description" class="form-control" required>{{ isset($data['description']) ? $data['description'] : '' }}</textarea>
+											<textarea rows="15" cols="5" id="editor" name="content" class="form-control" required>{{ isset($data['content']) ? $data['content'] : '' }}</textarea>
 										</div>
 									</td>
 								</tr>
@@ -338,7 +354,7 @@
 		{
 			$.getJSON('{{ url('news/getNewsInfo') }}', {news_id: news_id}, function(data) {
 				if (data) {	
-					$('#news').html(data.description);
+					$('#news').html(data.content);
 					$('#showNewsDetail').modal();
 				}
 			});
@@ -362,6 +378,7 @@
 				if(data == 1){
 					$('#title').val('');
 					$('#keyword').val('');
+					$('#description').html();
 					$('.simditor-body').html('');
 					$('#avatar').attr('src', '');
 					$('#id').val('');
@@ -371,10 +388,11 @@
 				}else{
 					$('#title').val(data.title);
 					$('#keyword').val(data.keyword);
-					$('.simditor-body').html(data.description);
+					$('#description').html(data.description);
+					$('.simditor-body').html(data.content);
 					$('#avatar').attr('src', data.avatar);
 					$('#id').val(data.id);
-					$('#editor').val(data.description);
+					$('#editor').val(data.content);
 					$(".select2-select-00").append("<option value="+data.cid+" selected>"+data.new_type+"</option>");
 					$(".select2-select-00").trigger('change');
 

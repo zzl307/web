@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Banners;
 use Illuminate\Http\Request;
 use App\Handlers\ImageUploadHandler;
+use App\System;
 
 class SystemController extends Controller
 {
@@ -69,8 +70,24 @@ class SystemController extends Controller
     }
 
     // 网站优化
-    public function system()
-    {
-        return view('system.system');
+    public function system(System $system)
+    {   
+        if (request()->isMethod('POST')) {
+            $data = request()->all();
+
+    		$system = $system->updateOrcreate(['id' => $data['id']], [
+    			'title' => $data['title'],
+				'keyword' => $data['keyword'],
+				'description' => $data['description'],
+    		]);
+
+    		if ($system) {
+				return redirect()->back()->with('success', '操作成功');
+    		}
+        }
+        
+        $data = System::first();
+
+        return view('system.system', compact('data'));
     }
 }

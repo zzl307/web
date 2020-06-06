@@ -56,6 +56,7 @@ class NewController extends Controller
     			'title' => $data['title'],
     			'keyword' => $data['keyword'],
 				'description' => $data['description'],
+				'content' => $data['content'],
 				'status' => 1,
 				'cid' => $data['cid'],
 				'post_count' => 1000,
@@ -93,9 +94,10 @@ class NewController extends Controller
 			$data = request()->all();
 
 			$categorys = $categorys->updateOrcreate(['id' => $data['id']], [
-    			'name' => $data['name'],
+    			'title' => $data['title'],
+				'keyword' => $data['keyword'],
+				'description' => $data['description'],
     			'cid' => $data['cid'],
-				'description' => $data['name'],
 				'status' => 1,
 				'post_count' => 0,
 			]);
