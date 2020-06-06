@@ -3,7 +3,7 @@
     use App\Category;
     use Illuminate\Support\Str;
 
-    function make_excerpt($value, $length = 200)
+    function make_excerpt($value, $length = 15)
     {
         $excerpt = trim(preg_replace('/\r\n|\r|\n+/', ' ', strip_tags($value)));
         return Str::limit($excerpt, $length);

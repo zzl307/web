@@ -19,8 +19,8 @@
             </div>
             <div class="info">
                 <span>发布时间：</span>{{ $data->created_at }}
-                <span>本文关键词:</span><a href="" style="color: #6a9bd3;font-size: 15px"> {{ $data->keyword }} </a>
-                <span> 文章来源:</span><a href="#" style="color: #6a9bd3;font-size: 15px"> 安安美容整形</a>
+                <span> 本文关键词:</span><a href="" style="color: #6a9bd3;font-size: 15px"> {{ make_excerpt($data->keyword) }} </a>
+                <span> 文章来源:</span><a href="#" style="color: #6a9bd3;font-size: 15px"> 安安医疗美容</a>
             </div>
             <div class="content">
                 {!! $data->content !!}
