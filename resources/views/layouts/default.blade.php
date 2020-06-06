@@ -27,17 +27,6 @@
 			margin-top: 18px;
 		}
 	</style>
-	{{-- <script type="text/javascript" src="./static/js/yixingswt.js"></script> --}}
-	<script type="text/javascript">
-		try {
-			var urlhash = window.location.hash;
-			if (!urlhash.match("fromapp")) {
-				if ((navigator.userAgent.match(/(iPhone|iPod|Android|ios|iPad)/i))) {
-					window.location = "";
-				}
-			}
-		} catch (err) {}
-	</script>
 </head>
 
 <body>

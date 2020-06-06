@@ -21,17 +21,6 @@
     <link href="{{ asset('weisucss/css/css.css') }}" rel="stylesheet">
     <link href="{{ asset('weisucss/dh/css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('css/css.css') }}" rel="stylesheet">
-	{{-- <script type="text/javascript" src="./static/js/yixingswt.js"></script> --}}
-	<script type="text/javascript">
-		try {
-			var urlhash = window.location.hash;
-			if (!urlhash.match("fromapp")) {list.css
-				if ((navigator.userAgent.match(/(iPhone|iPod|Android|ios|iPad)/i))) {
-					window.location = "";
-				}
-			}
-		} catch (err) {}
-    </script>
     
     @yield('style')
 
