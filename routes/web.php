@@ -23,6 +23,11 @@ Route::get('details/{id}/{slug?}', 'StaticPagesController@details')->name('detai
 
 Auth::routes();
 
+// 后台首页
+Route::get('/home', function(){
+	return redirect('news/index');
+});
+
 Route::group(['prefix' => 'news'], function(){
 	// Route::group(['middleware' => 'can:site_overview'], function () {
 		Route::any('index', 'NewController@home');
