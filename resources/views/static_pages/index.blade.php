@@ -21,7 +21,7 @@
                         <img style="width: 174px;height: 174px;" src="{{ asset('image') }}/3c10fb7628a5fb3e76bbc4b6808763d.jpg" alt="白体脂肪隆胸" />
                     </figure>
                     <em class="iBlock absolute fourIcon Hot"></em>
-                    <p style="text-align: center;font-size: 14px;">白体脂肪隆胸</p>
+                    <p style="text-align: center;font-size: 14px;">自体脂肪隆胸</p>
                 </a>
             </div>
             <div class="itemlist boxIndex">
@@ -68,7 +68,7 @@
         <div class="zjContent relative">
             <div class="zjlists">
                 <div class="zjlist relative">
-                    <img src="{{ asset('image') }}/1200X560.jpg" alt="" />
+                    <img src="{{ asset('image') }}/1200X560.jpg" alt="王桂龙" />
                     <div class="zjTxt absolute">
                         <h3>院长</h3>
                         <div class="zjzc">
@@ -90,7 +90,7 @@
                 </div>
 
                 <div class="zjlist relative">
-                    <img src="{{ asset('image') }}/1200X560-3.jpg" alt="" />
+                    <img src="{{ asset('image') }}/1200X560-3.jpg" alt="陈云康" />
                     <div class="zjTxt absolute">
                         <h3>主任医师</h3>
                         <div class="zjzc">
@@ -111,7 +111,7 @@
                 </div>
 
                 <div class="zjlist relative">
-                    <img src="{{ asset('image') }}/1200X560-2.jpg" alt="" />
+                    <img src="{{ asset('image') }}/1200X560-2.jpg" alt="颜舒" />
                     <div class="zjTxt absolute">
                         <h3>主任医师</h3>
                         <div class="zjzc">
@@ -131,7 +131,7 @@
                 </div>
     
                 <div class="zjlist relative">
-                    <img src="{{ asset('image') }}/1200X560-4.jpg" alt="" />
+                    <img src="{{ asset('image') }}/1200X560-4.jpg" alt="谢闯" />
                     <div class="zjTxt absolute">
                         <h3>主任医师</h3>
                         <div class="zjzc">
@@ -153,19 +153,19 @@
             <div class="zjhd absolute">
                 <div class="zjtabBd">
                     <li class="zjcicle relative">
-                        <img style="width: 108px;height: 108px;" src="{{ asset('image') }}/31.jpg" />
+                        <img style="width: 108px;height: 108px;" src="{{ asset('image') }}/31.jpg" alt="安安医疗美容"/>
                         <em class="iBlock fourIcon absolute"></em>
                     </li>
                     <li class="zjcicle relative">
-                        <img style="width: 108px;height: 108px;" src="{{ asset('image') }}/511.jpg" />
+                        <img style="width: 108px;height: 108px;" src="{{ asset('image') }}/511.jpg" alt="美容安安医疗"/>
                         <em class="iBlock fourIcon absolute"></em>
                     </li>
                     <li class="zjcicle relative">
-                        <img style="width: 108px;height: 108px;" src="{{ asset('image') }}/41.jpg" />
+                        <img style="width: 108px;height: 108px;" src="{{ asset('image') }}/41.jpg" alt="美容医疗安安"/>
                         <em class="iBlock fourIcon absolute"></em>
                     </li>
                     <li class="zjcicle relative">
-                        <img style="width: 108px;height: 108px;" src="{{ asset('image') }}/51.jpg" />
+                        <img style="width: 108px;height: 108px;" src="{{ asset('image') }}/51.jpg" alt="南京安安医疗美容"/>
                         <em class="iBlock fourIcon absolute"></em>
                     </li>
                 </div>
@@ -176,91 +176,91 @@
     <!-- 完美脱变 -->
     <section class="truealBoxs wPub">
         <a href="#"> 
-            <img src="{{ asset('image') }}/1.jpg" class="after" />
-            <img src="{{ asset('image') }}/20.jpg" class="before" />
+            <img src="{{ asset('image') }}/1.jpg" class="after" alt="美容"/>
+            <img src="{{ asset('image') }}/20.jpg" class="before" alt="护肤"/>
         </a>
         <a href="#"> 
             <img src="{{ asset('image') }}/2.jpg" class="after" />
             <img src="{{ asset('image') }}/19.jpg" class="before" />
         </a>
         <a href="#"> 
-            <img src="{{ asset('image') }}/3.jpg" class="after" />
-            <img src="{{ asset('image') }}/18.jpg" class="before" />
+            <img src="{{ asset('image') }}/3.jpg" class="after" alt="安安"/>
+            <img src="{{ asset('image') }}/18.jpg" class="before" alt="安安医美"/>
         </a>
         <a href="#"> 
-            <img src="{{ asset('image') }}/4.jpg" class="after" />
-            <img src="{{ asset('image') }}/17.jpg" class="before" />
+            <img src="{{ asset('image') }}/4.jpg" class="after" alt="医疗美容医院"/>
+            <img src="{{ asset('image') }}/17.jpg" class="before" alt="医疗整形美容"/>
         </a>
         <a href="#"> 
-            <img src="{{ asset('image') }}/5.jpg" class="after" />
-            <img src="{{ asset('image') }}/16.jpg" class="before" />
+            <img src="{{ asset('image') }}/5.jpg" class="after" alt="南京医疗美容"/>
+            <img src="{{ asset('image') }}/16.jpg" class="before" alt="南京医疗美容医院"/>
         </a>
         <a href="#"> 
-            <img src="{{ asset('image') }}/6.jpg" class="after" />
-            <img src="{{ asset('image') }}/15.jpg" class="before" />
+            <img src="{{ asset('image') }}/6.jpg" class="after" alt="医疗美容培训"/>
+            <img src="{{ asset('image') }}/15.jpg" class="before" alt="南京医疗美容培训"/>
         </a>
         <a href="#"> 
-            <img src="{{ asset('image') }}/7.jpg" class="after" />
-            <img src="{{ asset('image') }}/14.jpg" class="before" />
+            <img src="{{ asset('image') }}/7.jpg" class="after" alt="王氏6D双眼皮"/>
+            <img src="{{ asset('image') }}/14.jpg" class="before" alt="自体脂肪隆胸"/>
         </a>
         <a href="#"> 
-            <img src="{{ asset('image') }}/8.jpg" class="after" />
-            <img src="{{ asset('image') }}/13.jpg" class="before" />
+            <img src="{{ asset('image') }}/8.jpg" class="after" alt="专业祛眼袋"/>
+            <img src="{{ asset('image') }}/13.jpg" class="before" alt="南京专业祛眼袋"/>
         </a>
         <a href="#"> 
-            <img src="{{ asset('image') }}/9.jpg" class="after" />
-            <img src="{{ asset('image') }}/12.jpg" class="before" />
+            <img src="{{ asset('image') }}/9.jpg" class="after" alt="3D童颜提升术"/>
+            <img src="{{ asset('image') }}/12.jpg" class="before" alt="安安3D童颜提升术"/>
         </a>
         <a href="#"> 
-            <img src="{{ asset('image') }}/10.jpg" class="after" />
-            <img src="{{ asset('image') }}/11.jpg" class="before" />
+            <img src="{{ asset('image') }}/10.jpg" class="after" alt="SVF童颜脂雕"/>
+            <img src="{{ asset('image') }}/11.jpg" class="before" alt="南京SVF童颜脂雕"/>
         </a>
         <span class="iBlock fl">
-            <img style="width: 600px;height: 150px;" src="{{ asset('image') }}/600.jpg" />
+            <img style="width: 600px;height: 150px;" src="{{ asset('image') }}/600.jpg" alt="为万千求美者提供安全安心的美丽体验"/>
         </span>
         <a href="#"> 
-            <img src="{{ asset('image') }}/11.jpg" class="after" />
-            <img src="{{ asset('image') }}/10.jpg" class="before" />
+            <img src="{{ asset('image') }}/11.jpg" class="after" alt="微笑M唇"/>
+            <img src="{{ asset('image') }}/10.jpg" class="before" alt="安安微笑M唇"/>
         </a>
         <a href="#"> 
-            <img src="{{ asset('image') }}/12.jpg" class="after" />
-            <img src="{{ asset('image') }}/9.jpg" class="before" />
+            <img src="{{ asset('image') }}/12.jpg" class="after" alt="安安美容"/>
+            <img src="{{ asset('image') }}/9.jpg" class="before" alt="南京安安"/>
         </a>
         <a href="#"> 
-            <img src="{{ asset('image') }}/13.jpg" class="after" />
-            <img src="{{ asset('image') }}/8.jpg" class="before" />
+            <img src="{{ asset('image') }}/13.jpg" class="after" alt="南京安安医疗美容"/>
+            <img src="{{ asset('image') }}/8.jpg" class="before" alt="美容医院"/>
         </a>
         <a href="#"> 
-            <img src="{{ asset('image') }}/14.jpg" class="after" />
-            <img src="{{ asset('image') }}/7.jpg" class="before" />
+            <img src="{{ asset('image') }}/14.jpg" class="after" alt="医美医院"/>
+            <img src="{{ asset('image') }}/7.jpg" class="before" alt="南京医美医院"/>
         </a>
         <a href="#"> 
-            <img src="{{ asset('image') }}/15.jpg" class="after" />
-            <img src="{{ asset('image') }}/6.jpg" class="before" />
+            <img src="{{ asset('image') }}/15.jpg" class="after" alt="南京整形"/>
+            <img src="{{ asset('image') }}/6.jpg" class="before" alt="整形医院"/>
         </a>
         <a href="#"> 
-            <img src="{{ asset('image') }}/16.jpg" class="after" />
-            <img src="{{ asset('image') }}/5.jpg" class="before" />
+            <img src="{{ asset('image') }}/16.jpg" class="after" alt="南京美容整形"/>
+            <img src="{{ asset('image') }}/5.jpg" class="before" alt="南京整形美容"/>
         </a>
         <a href="#"> 
-            <img src="{{ asset('image') }}/17.jpg" class="after" />
-            <img src="{{ asset('image') }}/4.jpg" class="before" />
+            <img src="{{ asset('image') }}/17.jpg" class="after" alt="南京安安医疗美容整形"/>
+            <img src="{{ asset('image') }}/4.jpg" class="before" alt="南京安安医疗美容整形医院"/>
         </a>
         <a href="#"> 
-            <img src="{{ asset('image') }}/18.jpg" class="after" />
-            <img src="{{ asset('image') }}/3.jpg" class="before" />
+            <img src="{{ asset('image') }}/18.jpg" class="after" alt="安安医疗美容好不好"/>
+            <img src="{{ asset('image') }}/3.jpg" class="before" alt="安安医疗美容地址"/>
         </a>
         <a href="#"> 
-            <img src="{{ asset('image') }}/19.jpg" class="after" />
-            <img src="{{ asset('image') }}/2.jpg" class="before" />
+            <img src="{{ asset('image') }}/19.jpg" class="after" alt="安安医疗整形美容医院"/>
+            <img src="{{ asset('image') }}/2.jpg" class="before" alt="南京安安医疗美容整形医院电话"/>
         </a>
         <a href="#"> 
-            <img src="{{ asset('image') }}/20.jpg" class="after" />
-            <img src="{{ asset('image') }}/1.jpg" class="before" />
+            <img src="{{ asset('image') }}/20.jpg" class="after" alt="安安医疗美容"/>
+            <img src="{{ asset('image') }}/1.jpg" class="before" alt="安安医疗美容电话"/>
         </a>
         <a href="#"> 
-            <img src="{{ asset('image') }}/20.jpg" class="after" />
-            <img src="{{ asset('image') }}/5.jpg" class="before" />
+            <img src="{{ asset('image') }}/20.jpg" class="after" alt="南京安安医疗整形美容"/>
+            <img src="{{ asset('image') }}/5.jpg" class="before" alt="安安医疗美容"/>
         </a>
     </section>
 
