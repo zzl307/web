@@ -45,7 +45,7 @@
                             </a>
                         </li>
                     </ul>
-                    <a class="navbar-brand" href="{{ url('/home') }}">
+                    <a class="navbar-brand" href="{{ route('root') }}">
                         anan 网站后台管理
                     </a>
                     <a href="#" class="toggle-sidebar bs-tooltip" data-placement="bottom" data-original-title="Toggle navigation">

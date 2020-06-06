@@ -25,7 +25,7 @@ Auth::routes();
 
 Route::group(['prefix' => 'news'], function(){
 	// Route::group(['middleware' => 'can:site_overview'], function () {
-		Route::any('index', 'NewController@home');
+		Route::any('index', 'NewController@home')->name('root');
 		Route::any('/store', 'NewController@store')->name('news.store');
 		Route::any('/category', 'NewController@category')->name('news.category');
 		Route::any('/category_store', 'NewController@categoryStore')->name('news.categoryStore');
