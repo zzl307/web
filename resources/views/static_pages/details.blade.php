@@ -27,8 +27,8 @@
             </div>
             <div class="zx_ol" style="width:406px; margin:0 auto;"> <img src="" border="0" usemap="#Map2" />
                 <map name="Map2" id="Map2">
-                    <area shape="rect" coords="3,3,192,37" href="/swt" target="_blank" />
-                    <area shape="rect" coords="214,4,406,39" href="/swt" />
+                    <area shape="rect" coords="3,3,192,37" href="#" target="_blank" />
+                    <area shape="rect" coords="214,4,406,39" href="#" />
                 </map>
             </div>
             <div class="context">

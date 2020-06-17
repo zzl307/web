@@ -29,19 +29,19 @@
 				a:visited {
 					color: #908f90;
 				}
-            </style>
+            </style>    
         @show
     </head>
-    
+
     <body>
         @section('header')
             <header class="header navbar navbar-fixed-top" role="banner">
                 <div class="container">
                     <ul class="nav navbar-nav">
                         <li class="nav-toggle">
-                            <a href="javascript:void(0);" title="">
+                            <a href="javascript:void(0);" title=""> 
                                 <i class="icon-reorder">
-                                </i>
+                                </i>    
                             </a>
                         </li>
                     </ul>
