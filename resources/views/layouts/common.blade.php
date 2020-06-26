@@ -24,16 +24,6 @@
     
     @yield('style')
 
-    <script>
-        var _hmt = _hmt || [];
-        (function() {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?5599e16982e75cd6a40f87bbeb6ba8ee";
-        var s = document.getElementsByTagName("script")[0]; 
-        s.parentNode.insertBefore(hm, s);
-        })();
-    </script>
-
 </head>
 
 <body>
@@ -111,6 +101,16 @@
 	<script src="{{ asset('weisucss/js/menu.js') }}"></script>
 	<script src="{{ asset('weisucss/js/jquery-ui-1.8.18.custom.min.js') }}"></script>
     <script src="{{ asset('weisucss/js/common.js') }}"></script>
+
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?5599e16982e75cd6a40f87bbeb6ba8ee";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
     
     @yield('javascript')
 </body>
