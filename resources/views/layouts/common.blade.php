@@ -106,7 +106,7 @@
         var _hmt = _hmt || [];
         (function() {
         var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?5599e16982e75cd6a40f87bbeb6ba8ee";
+        hm.src = "https://hm.baidu.com/hm.js?d49dede791e020c065cae66d89af5d06";
         var s = document.getElementsByTagName("script")[0]; 
         s.parentNode.insertBefore(hm, s);
         })();
