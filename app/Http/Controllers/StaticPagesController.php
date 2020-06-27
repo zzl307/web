@@ -7,6 +7,7 @@ use App\Category;
 use App\News;
 use App\System;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class StaticPagesController extends Controller
 {
@@ -25,10 +26,9 @@ class StaticPagesController extends Controller
         $list = News::where('cid', 13)->take(8)->get();
         // 培训技术
         $training = News::where('cid', 14)->take(8)->get();
-
+ 
         // 网站优化
         $system = System::first();
-
         return view('static_pages/index', compact('data', 'category_status', 'tree', 'news', 'company', 'list', 'training', 'system'));
     }
 
@@ -40,6 +40,16 @@ class StaticPagesController extends Controller
             $cid = Category::where('id', $id)->first();
             $new_category = Category::where('cid', $cid->cid)->get();
         }
+
+        if ($id == 1) {
+            $category_id = Category::where('cid', $id)->get('id')->toArray();
+            foreach ($category_id as $vo) {
+                $categoryId[] = $vo['id'];
+            }
+
+            $new = DB::table('news')->whereIn('cid', $categoryId)->get();
+        }
+
         $new = News::where('cid', $id)->get();
         $category_status = get_category_status();
         $tree = get_category_tree();
@@ -47,7 +57,7 @@ class StaticPagesController extends Controller
 
         return view('static_pages.news', compact('category_status', 'tree','new_category', 'new', 'category_title'));
     }
-
+ 
     // 详情
     public function details(News $news, $id)
     {   
