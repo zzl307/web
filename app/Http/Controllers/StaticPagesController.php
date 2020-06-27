@@ -48,9 +48,10 @@ class StaticPagesController extends Controller
             }
 
             $new = DB::table('news')->whereIn('cid', $categoryId)->get();
+        } else {
+            $new = News::where('cid', $id)->get();
         }
 
-        $new = News::where('cid', $id)->get();
         $category_status = get_category_status();
         $tree = get_category_tree();
         $category_title = $category->get_category_title($id);
