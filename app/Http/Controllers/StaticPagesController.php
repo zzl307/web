@@ -41,7 +41,9 @@ class StaticPagesController extends Controller
             $new_category = Category::where('cid', $cid->cid)->get();
         }
 
-        if ($id == 1) {
+        $category_cid = DB::table('categories')->where('id', $id)->first();
+
+        if ($category_cid->cid == 0) {
             $category_id = Category::where('cid', $id)->get('id')->toArray();
             foreach ($category_id as $vo) {
                 $categoryId[] = $vo['id'];
