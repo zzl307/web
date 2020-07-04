@@ -12,6 +12,7 @@
             </div>
             <div class='qualLinks fl clearfix'>
                 <a href='#' class='iBlock fl boxIndex'>联系我们</a>
+                <a href='https://blog.ananzx.com' class='iBlock fl boxIndex'>王桂龙院长blog</a>
             </div>
         </div>
     </div>
