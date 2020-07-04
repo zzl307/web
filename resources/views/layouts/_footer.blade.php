@@ -12,13 +12,12 @@
             </div>
             <div class='qualLinks fl clearfix'>
                 <a href='#' class='iBlock fl boxIndex'>联系我们</a>
-                <a href='https://blog.ananzx.com' class='iBlock fl boxIndex'>王桂龙院长blog</a>
             </div>
         </div>
     </div>
 </section>
 <section class='footerIndex' id='footerBz'>
     <div class='footerCon wPub'>
-        <p>网站备案号 <a href="http://beian.miit.gov.cn/state/outPortal/loginPortal.action">苏ICP备09087349号-3</a> <br/><a href="{{ route('sitemap.index') }}">网站地图</a><br/>地址：江苏省南京市秦淮区中山南路321号现代大厦2楼<br/>详情请到医院资讯</p><br/>
+        <p>网站备案号 <a href="http://beian.miit.gov.cn/state/outPortal/loginPortal.action">苏ICP备09087349号-3</a> <br/><a href="{{ route('sitemap.index') }}">网站地图</a><br/><a href="https://blog.ananzx.com" target='_blank'>王桂龙院长blog</a><br/>地址：江苏省南京市秦淮区中山南路321号现代大厦2楼<br/>详情请到医院资讯</p><br/>
     </div>
 </section>
