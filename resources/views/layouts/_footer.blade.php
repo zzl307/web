@@ -12,6 +12,7 @@
             </div>
             <div class='qualLinks fl clearfix'>
                 <a href='#' class='iBlock fl boxIndex'>联系我们</a>
+                <a href='https://www.ananzx.com/details/48/an-an-yi-liao-mei-rong-sheng-ming' class='iBlock fl boxIndex' style="margin-left: 15px;">声明</a>
             </div>
         </div>
     </div>
