@@ -3,8 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=yes">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -22,28 +21,18 @@
     <link href="{{ asset('weisucss/dh/css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('css/css.css') }}" rel="stylesheet">
 	{{-- <script type="text/javascript" src="./static/js/yixingswt.js"></script> --}}
-	<script type="text/javascript">
-		try {
-			var urlhash = window.location.hash;
-			if (!urlhash.match("fromapp")) {list.css
-				if ((navigator.userAgent.match(/(iPhone|iPod|Android|ios|iPad)/i))) {
-					window.location = "";
-				}
-			}
-		} catch (err) {}
-    </script>
     
     @yield('style')
 
 </head>
 
-<body>
+<body style="min-width: 1300px;">
 	<section class="headerAll" id="headerAll">
         <section class="bannerBz">
             <div class="bannerPic relative">
                 <img src="{{ asset('image') }}/534.jpg" alt="" />
             </div>
-            <div class="topIdex absolute">
+            <div class="topIdex absolute" style="position: relative;">
                 <img style="width: 277px; height: 40px;" src="{{ asset('image') }}/logo2.png" alt="">
                 <div class="topNav fr">
                     <a href="/">首页</a>
@@ -105,13 +94,10 @@
     @include('layouts._footer')
 
 	{{-- Scripts --}}
-	<script src="{{ asset('js/jquery-1.11.2.min.js') }}"></script>
+	<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="{{ asset('js/jquery.SuperSlide.2.1.3.js') }}"></script>
 	<script src="{{ asset('js/swiper.min.js') }}"></script>
-	<script src="{{ asset('js/jquery.SuperSlide.2.1.1.js') }}"></script>
 	<script src="{{ asset('js/common.js') }}"></script>
-	<script src="{{ asset('weisucss/js/menu.js') }}"></script>
-	<script src="{{ asset('weisucss/js/jquery-ui-1.8.18.custom.min.js') }}"></script>
-    <script src="{{ asset('weisucss/js/common.js') }}"></script>
     
     @yield('javascript')
 </body>

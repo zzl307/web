@@ -4,7 +4,6 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width">
     <meta name="baidu-site-verification" content="8s5Foxgted" />
 
     <!-- CSRF Token -->
@@ -37,10 +36,33 @@
 	@include('layouts._footer')
 
 	{{-- Scripts --}}
-	<script src="{{ asset('js/jquery-1.11.2.min.js') }}"></script>
+	<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="{{ asset('js/jquery.SuperSlide.2.1.3.js') }}"></script>
 	<script src="{{ asset('js/swiper.min.js') }}"></script>
-	<script src="{{ asset('js/jquery.SuperSlide.2.1.1.js') }}"></script>
 	<script src="{{ asset('js/common.js') }}"></script>
+
+	<script type="text/javascript">
+		jQuery(".fullSlide").hover(function() {
+			jQuery(this).find(".prev,.next").stop(true, true).fadeTo("show", 0.5)
+		},
+		function() {
+			jQuery(this).find(".prev,.next").fadeOut()
+		});
+		jQuery(".fullSlide").slide({
+			titCell: ".hd ul",
+			mainCell: ".bd ul",
+			effect: "fold",
+			autoPlay: true,
+			autoPage: true,
+			trigger: "click",
+			startFun: function(i) {
+				var curLi = jQuery(".fullSlide .bd li").eq(i);
+				if ( !! curLi.attr("_src")) {
+					curLi.css("background-image", curLi.attr("_src")).removeAttr("_src")
+				}
+			}
+		});
+	</script>
 
 	<script>
 		var _hmt = _hmt || [];

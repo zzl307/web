@@ -6,6 +6,9 @@
             width: 308px;
             height: 300px;
         }
+        body {
+            min-width: 1300px;
+        }
     </style>
 @endsection
 

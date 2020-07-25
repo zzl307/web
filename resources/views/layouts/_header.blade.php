@@ -1,21 +1,18 @@
-<section class="bannerIndex">
-    <div class="swiper-container bannerSwiper">
-        <div class="swiper-wrapper">
+<section class="fullSlide">
+    <div class="bd">
+        <ul>
             @foreach ($data as $vo)
-                <div class="swiper-slide">
-                    <a href="#" class="iBlock">
-                        <img src="{{ $vo->avatar }}" alt="{{ $vo->title }}" />
-                    </a>
-                </div>                   
+                <li _src="url({{ $vo->avatar }})" style="background-repeat:no-repeat; background-size:100% 100%;-moz-background-size:100% 100%;"><a target="_blank" href="#"></a></li>
             @endforeach
+        </ul>
         </div>
-        <div class="swiper-button-prev bannerButton borderCircle ani">
-            <em class="fourIcon iBlock"></em>
+        <div class="hd">
+            <ul>
+            </ul>
         </div>
-        <div class="swiper-button-next bannerButton borderCircle ani">
-            <em class="fourIcon iBlock"></em>
-        </div>
+        <span class="prev"></span> <span class="next"></span>
     </div>
+</div>
     <div class="topIdex absolute">
         <img style="width: 277px; height: 40px;" src="{{ asset('image/logo2.png') }}" alt="">
         <div class="topNav fr">

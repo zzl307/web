@@ -744,6 +744,7 @@ img {
 /*pub foot*/
 .qualityBoxs {
     width: 100%;
+    min-width: 1200px;
     height: 500px;
     background: url(../image/footer.jpg) no-repeat center center;
     background-size:100% 100%;
