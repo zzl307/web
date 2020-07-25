@@ -9,6 +9,9 @@
         body {
             min-width: 1300px;
         }
+        .topIdex {
+            position: relative;
+        }
     </style>
 @endsection
 
